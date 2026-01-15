@@ -1,15 +1,62 @@
   <%= render 'shared/header'%>
-  <div class="search-form">
-    <form>
-      <input type="text" placeholder="エリア名を入力">
-      <button type="submit">検索</button>
-    </form>
+<div class="content-wrapper">
+  <div class="search-content">
+    <div class="catch-phrase">
+      <p>PotepanShareで</br>まだ体験したことのない</br>旅をしよう</p>
+    </div>
+    <div class="search-form">
+      <form>
+        <div class="area-form">
+          <input type="text" placeholder="エリア名を入力" class="text-area" >
+          <button type="submit" class="search-btn">検索</button>
+        </div>
+      </form>
+    </div>
   </div>
-<footer>
-  <h1>
-    <%= link_to "宿泊予約アプリ", root_path, class: "header-title" %>
-  </h1>
-  <p>&copy;2026 StayReservation. All Rights Reserved</p>
 
+  <div class="area-inner">
+    <h3>おすすめのエリア</h3>
+    <div class="product-grid">
+      <a href="#" class="product-item">
+        <div class="area">
+          <p>東京</p>
+          <p>Tokyo</p>
+        </div>
+      </a>
+      <a href="#" class="product-item">
+        <div class="area">
+          <p>大阪</p>
+          <p>Osaka</p>
+        </div>
+      </a>
+      <a href="#" class="product-item">
+        <div class="area">
+          <p>京都</p>
+          <p>Kyoto</p>
+        </div>
+      </a>
+      <a href="#" class="product-item">
+        <div class="area">
+          <p>札幌</p>
+          <p>Sapporo</p>
+        </div>
+      </a>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="header-title">
+    <h1>
+      <%= link_to "宿泊予約アプリ", root_path, class: "header-title" %>
+    </h1>
+    <p>&copy;2026 StayReservation. All Rights Reserved</p>
+    </div>
+    <ul class="footer_nav">
+      <li><a href="#">About</a></li>
+      <li><a href="#">サイトマップ</a></li>
+      <li><a href="#">プライバシーポリシー</a></li>
+    </ul>
+  </div>
 </footer>
+
 
