@@ -1,0 +1,43 @@
+.footer-title {
+  display: inline-block;
+  margin: 16px;
+}
+
+p {
+  margin-top: 7.5px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    height: 40px;
+  }
+
+}
+
+.footer_nav {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-left: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      a:hover {
+        color: #007bff;
+      }
+    }
