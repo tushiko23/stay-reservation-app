@@ -1,0 +1,16 @@
+  <%= render 'shared/header'%>
+      <h2>ユーザー情報</h2>
+  <div class="tabs-container">
+    <label><input type="radio" name="tab-2" checked>アカウント</label>
+    <div>
+      <p>メールアドレス: <%= @user.email %></p>
+      <p>パスワード: *********</p>
+    </div>
+    <label><input type="radio" name="tab-2">プロフィール</label>
+    <div>
+      <p>アイコン画像: <%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン' %></p>
+      <p>名前: <%= @user.name %></p>
+      <p>自己紹介: あああああ</p>
+    </div>
+  </div>  
+
