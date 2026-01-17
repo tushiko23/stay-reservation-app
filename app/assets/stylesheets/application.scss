@@ -31,3 +31,22 @@ a {
   text-decoration: none;
   color: $text-base-color;
 }
+
+/* タブ全体のスタイル */
+.profile-tabs { margin-top: 20px; }
+.tab_item {
+  width: 150px; height: 40px; border-bottom: 3px solid #ccc;
+  line-height: 40px; text-align: center; display: inline-block; cursor: pointer;
+}
+input[name="tab_item"] { display: none; } /* ラジオボタンは隠す */
+
+/* コンテンツの切り替え */
+.tab_content { display: none; padding: 20px; border: 1px solid #eee; }
+
+/* ラジオボタンがチェックされた時の挙動 */
+#tab_view:checked ~ #view_content { display: block; }
+#tab_edit:checked ~ #edit_content { display: block; }
+#tab_view:checked ~ label[for="tab_view"],
+#tab_edit:checked ~ label[for="tab_edit"] {
+  border-bottom: 3px solid #3498db; color: #3498db; font-weight: bold;
+}
