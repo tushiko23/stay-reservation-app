@@ -1,10 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render 'shared/header'%>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<h2>アカウント</h2>
+
+<%= form_with( model: @user, url: user_registration_path, method: :put, local: :true ) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %><small>※変更する場合は新しいメールアドレスを入力</small><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -13,31 +15,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :password, "変更後パスワード" %> 
+    <small>※パスワードを変更する場合</small>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <small>※<%= @minimum_password_length %>字以上で入力</small><br>
     <% end %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更後のパスワードを入力" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, "確認パスワード" %>
+    <small>※パスワードを変更する場合</small><br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "変更後のパスワードを入力" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label :current_password %><small>※必須</small><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "編集する" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+<%= link_to "戻る", :back %>
