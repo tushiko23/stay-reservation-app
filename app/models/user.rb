@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :profile, dependent: :destroy
   validates :name, presence: { message: "を入力してください" }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
