@@ -1,0 +1,24 @@
+  <%= render 'shared/header'%>
+      <h2>ユーザー情報</h2>
+  <div class="tabs-container">
+    <label><input type="radio" name="tab-2" <%= 'checked' if params[:tab].blank? || params[:tab] == 'account' %> >アカウント</label>
+    <div>
+      <p>メールアドレス: <%= @user.email %></p>
+      <p>パスワード: *********</p>
+      <%= link_to '編集する', edit_user_registration_path %>
+      <%= link_to "トップに戻る", root_path %>
+    </div>
+    <label><input type="radio" name="tab-2" <%= 'checked' if params[:tab] == 'profile'%> >プロフィール</label>
+    <div>
+      <% if @profile.icon.attached? %>
+      <p>アイコン画像: <%= image_tag @profile.icon, size: '50x50', alt: 'ユーザーアイコン' %></p>
+      <% else %>
+      <p>アイコン画像: <%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン' %></p>
+      <% end %>
+      <p>名前: <%= @user.name %></p>
+      <p>自己紹介: <%= @profile.introduction %></p>
+      <%= link_to '編集する', edit_settings_profile_path %>
+      <%= link_to "トップに戻る", root_path %>
+    </div>
+  </div>  
+
