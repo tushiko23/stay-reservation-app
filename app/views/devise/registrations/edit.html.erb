@@ -2,7 +2,7 @@
 
 <h2>アカウント</h2>
 
-<%= form_with( model: @user, url: user_registration_path, method: :put, local: :true ) do |f| %>
+<%= form_with model: @user, url: user_registration_path, method: :put, local: :true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -39,4 +39,4 @@
   </div>
 <% end %>
 
-<%= link_to "戻る", :back %>
+<%= link_to "戻る", settings_path(tab: :account) %>
