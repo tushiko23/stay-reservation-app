@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   scope :users do
-    resource :account, show: [ :show ]
+    resource :settings, only: [ :show ]
+    post "settings/profile", to: "profiles#update"
+    patch "settings/profile", to: "profiles#update"
+    resource :settings, only: [] do
+      resource :profile, only: [ :edit ]
+    end
   end
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
