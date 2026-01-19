@@ -8,7 +8,11 @@
         <li class="menu-item">
         <% if user_signed_in? %>
           <a href="#">
-            <span><%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'calculator-icon' %></span>
+            <% if @profile.icon.attached? %>
+              <span><%= image_tag @profile.icon, alt: 'ユーザーアイコン', class: 'calculator-icon' %></span>
+            <% else %>
+              <span><%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'calculator-icon' %></span>
+            <% end %>
             <span><%= current_user.name %>さん▼</span>
           </a>
           <div class="dropdown-menu">
@@ -16,7 +20,7 @@
               <li><a href="#" >施設の新規登録</a></li>
               <li><a href="#" >予約済み一覧</a></li>
               <li><a href="#" >登録済み一覧</a></li>
-              <li><%= link_to 'アカウントの設定', account_path %></li>
+              <li><%= link_to 'アカウントの設定', settings_path %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %></li>
             </ul>
           </div>
