@@ -1,0 +1,43 @@
+<%= render 'shared/header'%>
+  <h2>作成した施設一覧</h2>
+  <%= link_to '戻る', :back %>
+  <table>
+    <thead>
+      <tr>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>料金</th>
+        <th>作成日</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room|%>
+        <tr>
+          <% if room.image.attached? %>
+            <td><%= image_tag room.image, size: '100x100', alt: '宿泊先の画像' %></td>
+          <% else %>
+            <td><%= image_tag 'default-room.png', size: '100x100', alt: '宿泊先のデフォルト画像' %></td>
+          <% end %>
+            <td><%= link_to "#{room.name}", room_path(room.id) %></td>
+            <td><%= room.introduction %></td>
+            <td><%= room.fee_per_day %>円~</td>
+            <td><%= l(room.created_at) %></td>
+            <td>
+              <div class="dropdown-menu-own">
+                <%= image_tag 'actions_menu.png', size: '25x25', alt: '3点アイコンメニュー'%>
+              <div class="dropdown-menu-own-content">
+              <ul>
+                <li><%= link_to '編集', edit_room_path(room.id) %></li>
+                <li><%= link_to '施設を削除', room_path(room.id), data: { turbo_method: :delete, turbo_confirm: "施設を削除しますか？\n 施設画像: \n 施設名: #{room.name}\n 施設料金: #{room.fee_per_day}円" } %></li>
+              </ul>
+              </div>
+              </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody> 
+  </table>
+
+

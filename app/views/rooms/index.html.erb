@@ -1,0 +1,16 @@
+<%= render 'shared/header'%>
+  <h2>施設一覧</h2>
+<% @rooms.each do |room|%>
+  <div>
+    <% if room.image.attached? %>
+      <p><%= image_tag room.image, size: '100x100', alt: '宿泊先の画像' %></p>
+    <% else %>
+      <p><%= image_tag 'default-room.png', size: '100x100', alt: '宿泊先のデフォルト画像' %></p>
+    <% end %>
+    <h2><%= room.name %></h2>
+    <p><%= room.introduction %></p>
+    <p><%= room.fee_per_day %></p>
+    <p><%= room.address%></p>
+    <p><%= link_to "詳細を表示", room_path(room.id) %></p>
+  </div>
+<% end %>

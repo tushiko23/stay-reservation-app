@@ -1,0 +1,49 @@
+  <%= render 'shared/header'%>
+  <h2>施設の新規登録</h2>
+  <%= form_with model: @room, url: rooms_path, local: true do |f| %>
+  <div>
+    <%= f.label :name, '施設名' %>
+    <%= f.text_field :name %>
+    <% if f.object.errors.has_key?(:name) %>
+      <span style="color: red;">
+    <%= f.object.errors.full_messages_for(:name).join(", ") %>
+      </span>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :introduction, '施設詳細'%>
+    <%= f.text_area :introduction %>
+    <% if f.object.errors.has_key?(:introduction) %>
+      <span style="color: red;">
+    <%= f.object.errors.full_messages_for(:introduction).join(", ") %>
+      </span>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :fee_per_day, '料金'%>
+    <%= f.number_field :fee_per_day, min: 0, step: 1, placeholder: 1000 %>円
+    <% if f.object.errors.has_key?(:fee_per_day) %>
+      <span style="color: red;">
+    <%= f.object.errors.full_messages_for(:fee_per_day).join(", ") %>
+      </span>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :address, '施設住所' %>
+    <%= f.text_field :address %>
+    <% if f.object.errors.has_key?(:address) %>
+      <span style="color: red;">
+    <%= f.object.errors.full_messages_for(:address).join(", ") %>
+      </span>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :image, '施設画像' %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.submit '保存'%>
+  </div>
+  <%= link_to "戻る", :back %>
+  <% end %>
+
