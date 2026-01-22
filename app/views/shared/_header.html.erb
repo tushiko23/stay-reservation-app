@@ -17,9 +17,9 @@
           </a>
           <div class="dropdown-menu">
             <ul>
-              <li><a href="#" >施設の新規登録</a></li>
+              <li><%= link_to '施設の新規登録', new_room_path %></li>
               <li><a href="#" >予約済み一覧</a></li>
-              <li><a href="#" >登録済み一覧</a></li>
+              <li><%= link_to '登録済み一覧', rooms_own_path %></li>
               <li><%= link_to 'アカウントの設定', settings_path %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %></li>
             </ul>
