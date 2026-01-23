@@ -1,4 +1,18 @@
 <%= render 'shared/header'%>
+
+<%= search_form_for @q_form, url: rooms_path, local: true do |f| %>
+  <div>
+    <%= f.search_field :address_cont, placeholder: "エリア名" %>
+  </div>
+  <div>
+    <%= f.search_field :name_or_introduction_cont, placeholder: "キーワード" %>
+  </div>
+  <div>
+    <%= f.submit "検索" %>
+  </div>
+<% end %>
+
+  <p><%= @rooms_count %>件が見つかりました</p>
   <h2>施設一覧</h2>
 <% @rooms.each do |room|%>
   <div>
