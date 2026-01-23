@@ -11,4 +11,12 @@ class Room < ApplicationRecord
     greater_than: 0,
     only_integer: true
   }
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name introduction address]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
