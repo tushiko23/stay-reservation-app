@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "rooms/own", to: "rooms#own"
   resources :rooms
+
   scope :users do
     resource :settings, only: [ :show ]
     post "settings/profile", to: "profiles#update"
