@@ -37,7 +37,6 @@ gem "bootsnap", require: false
 # Use scss
 gem 'sassc-rails'
 
-# Use faker
 gem 'annotate'
 gem 'better_errors'
 gem 'binding_of_caller'
@@ -45,6 +44,9 @@ gem 'devise'
 gem 'faker'
 gem 'haml-rails'
 gem 'rubocop-rails'
+
+# 検索機能のライブラリ
+gem 'ransack'
 
 # Railsのメッセージの日本語化
 gem 'rails-i18n', '~> 7.0'
