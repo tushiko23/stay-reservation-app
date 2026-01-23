@@ -21,24 +21,24 @@
           <p>Tokyo</p>
         </div>
       <% end %>  
-      <%= link_to rooms_path(q: { address_cont: "大阪" }), class: "product-item"  do %>
+      <%= link_to rooms_path(q: { address_cont: "大阪" }), class: "product-item" do %>
         <div class="area">
           <p>大阪</p>
           <p>Osaka</p>
         </div>
       <% end %>
-      <a href="#" class="product-item">
+      <%= link_to rooms_path(q: { address_cont: "京都" }), class: "product-item" do %>
         <div class="area">
           <p>京都</p>
           <p>Kyoto</p>
         </div>
-      </a>
-      <a href="#" class="product-item">
+      <% end %>
+      <%= link_to rooms_path(q: { address_cont: "札幌" }), class: "product-item" do %>
         <div class="area">
           <p>札幌</p>
           <p>Sapporo</p>
         </div>
-      </a>
+      <% end %>
   </div>
 </div>
 <footer class="footer">
