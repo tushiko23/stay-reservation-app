@@ -2,9 +2,11 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
   before_action :set_room, only: [ :show, :edit, :update, :destroy ]
   before_action :correct_user, only: [ :edit, :update, :destroy ]
-
+  before_action :set_q, only: [ :index ]
   def index
-    @rooms = Room.all
+    @rooms = @q.result(distinct: true)
+    @q_form = Room.ransack({})
+    @rooms_count = @rooms.count
   end
 
   def new
@@ -47,6 +49,10 @@ class RoomsController < ApplicationController
 end
 
 private
+
+  def set_q
+    @q = Room.ransack(params[:q])
+  end
 
   def set_room
     @room = Room.find(params[:id])
