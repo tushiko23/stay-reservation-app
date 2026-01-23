@@ -5,30 +5,28 @@
       <p>宿泊予約アプリで</br>まだ体験したことのない</br>旅をしよう</p>
     </div>
     <div class="search-form">
-      <form>
-        <div class="area-form">
-          <input type="text" placeholder="エリア名を入力" class="text-area" >
-          <button type="submit" class="search-btn">検索</button>
-        </div>
-      </form>
+      <%= search_form_for @q, url: rooms_path, local: true do |f| %>
+        <%= f.search_field :address_cont, placeholder: "エリア名", class: "text-area" %>
+        <%= f.submit "検索", class: "search-btn" %>
+      <% end %>
     </div>
   </div>
 
   <div class="area-inner">
     <h3>おすすめのエリア</h3>
     <div class="product-grid">
-      <a href="#" class="product-item">
+      <%= link_to rooms_path(q: { address_cont: "東京" }), class: "product-item" do %>
         <div class="area">
           <p>東京</p>
           <p>Tokyo</p>
         </div>
-      </a>
-      <a href="#" class="product-item">
+      <% end %>  
+      <%= link_to rooms_path(q: { address_cont: "大阪" }), class: "product-item"  do %>
         <div class="area">
           <p>大阪</p>
           <p>Osaka</p>
         </div>
-      </a>
+      <% end %>
       <a href="#" class="product-item">
         <div class="area">
           <p>京都</p>
