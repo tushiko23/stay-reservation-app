@@ -22,8 +22,12 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def stay_days
+    @stay_days = (check_out_date - check_in_date).to_i
+  end
+
   def calculate_total_price
-    stay_days = (check_out_date - check_in_date).to_i
-    room.fee_per_day * stay_days * guest_count
+    stay_days
+    room.fee_per_day * @stay_days * guest_count
   end
 end
