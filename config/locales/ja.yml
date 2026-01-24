@@ -2,6 +2,7 @@ ja:
   time:
     formats:
       default: '%Y/%m/%d'
+      long: '%Y/%m/%d %H:%M'
   activerecord:
     attributes:
       room:
