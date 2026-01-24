@@ -1,0 +1,47 @@
+<%= render 'shared/header'%>
+  <h2>予約一覧</h2>
+    <table>
+    <thead>
+      <tr>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>チェックイン日</th>
+        <th>チェックアウト日</th>
+        <th>合計料金</th>
+        <th>予約確定日時</th>
+        <th>詳細</th>
+        <th>編集・削除</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation|%>
+      <tr>
+        <% if reservation.room.image.attached? %>
+          <td><%= image_tag reservation.room.image, size: '100x100', alt: '宿泊先の画像' %></td>
+        <% else %>
+          <td><%= image_tag 'default-room.png', size: '100x100', alt: '宿泊先のデフォルト画像' %></td>
+        <% end %>
+        <td><%= reservation.room.name %></td>
+        <td><%= reservation.room.introduction %></td>
+        <td><%= reservation.check_in_date %></td>
+        <td><%= reservation.check_out_date %></td>
+        <td><%= reservation.calculate_total_price %>円</td>
+        <td><%= l reservation.created_at, format: :long %></td>
+        <td><%= link_to '詳細', reservation_path(reservation.id) %></td>
+        <td>
+          <div class="dropdown-menu-own">
+            <%= image_tag 'actions_menu.png', size: '25x25', alt: '3点アイコンメニュー'%>
+            <div class="dropdown-menu-own-content">
+              <ul>
+                <li><%= link_to '編集', edit_reservation_path(reservation.id) %></li>
+                <li><%= link_to '予約を削除', reservation_path(reservation.id), data: { turbo_method: :delete, turbo_confirm: "予約を削除しますか？\n 予約画像: \n 予約名: #{reservation.room.name}\n 宿泊料金: #{reservation.calculate_total_price}円" } %></li>
+              </ul>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>  
+    </table>
+
