@@ -1,4 +1,5 @@
   <%= render 'shared/header'%>
+  <div class="formContainer">
   <h2>施設の新規登録</h2>
   <%= form_with model: @room, url: rooms_path, local: true do |f| %>
   <div>
@@ -46,4 +47,5 @@
   </div>
   <%= link_to "戻る", :back %>
   <% end %>
-
+  </div>
+  <%= render 'shared/footer'%>
