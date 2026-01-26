@@ -15,4 +15,10 @@
     <p><%= @room.introduction %></p>
     <p><%= @room.fee_per_day %></p>
     <p><%= @room.address%></p>
+    <% if user_signed_in? %>
+    <%= link_to "予約する", new_room_reservation_path(@room) %>
+    <% else %>
+    <%= link_to "ログインまたは新規登録", new_user_session_path %>
+    <% end %>
   </div>
+  <%= render 'shared/footer'%>
