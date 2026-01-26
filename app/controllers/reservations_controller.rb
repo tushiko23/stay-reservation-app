@@ -12,6 +12,10 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = current_user.reservations.build(reservation_params.merge(room: @room))
+
+    unless @reservation.valid?
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def create
