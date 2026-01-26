@@ -4,12 +4,13 @@
     <%= link_to "←戻る", :back %>
     <%= link_to "編集する", edit_reservation_path() %>
   </div>
-    <div> 施設画像
+    <div>
     <% if @reservation.room.image.attached? %>
     <p><%= image_tag @reservation.room.image, size: '100x100', alt: '宿泊先の画像' %></p>
     <% else %>
     <p><%= image_tag 'default-room.png', size: '100x100', alt: '宿泊先のデフォルト画像' %></p>
     <% end %>
+    </div>
     <h2>施設名: <%= @reservation.room.name %></h2>
     <p>チェックイン日: <%= @reservation.check_in_date %></p>
     <p>チェックアウト日: <%= @reservation.check_out_date %></p>
@@ -17,3 +18,5 @@
     <p>宿泊人数: <%= @reservation.guest_count %>人</p>
     <p>宿泊料金: <%= @reservation.calculate_total_price %>円</p>
   </div>
+
+<%= render 'shared/footer'%>

@@ -1,3 +1,5 @@
+<%= render 'shared/header'%>
+
 <p>編集画面</p>
 
 <%= form_with model: @profile, url: settings_profile_path, local: true do |f| %>
@@ -21,3 +23,5 @@
 <% end %>
 
 <%= link_to "戻る", settings_path(tab: :profile) %>
+
+<%= render 'shared/footer'%>
