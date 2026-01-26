@@ -4,7 +4,12 @@ class Reservation < ApplicationRecord
 
   validates :check_in_date, presence: true
   validates :check_out_date, presence: true
-  validates :guest_count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validates :guest_count, presence: true
+
+  validates :guest_count, numericality: {
+    only_integer: true,
+    greater_than: 0 }
+
   validate :date_cannot_be_in_the_past
   validate :check_out_date_after_check_in_date
 
