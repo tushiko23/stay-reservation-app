@@ -3,4 +3,9 @@ class HomeController < ApplicationController
   def index
     @rooms = @q.result(distinct: true)
   end
+
+private
+  def set_q
+    @q = Room.ransack(params[:q])
+  end
 end
