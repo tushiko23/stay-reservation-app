@@ -1,0 +1,22 @@
+<%= render 'shared/header'%>
+
+<h2>予約内容の確認</h2>
+
+<p>チェックイン: <%= @reservation.check_in_date %></p>
+<p>チェックアウト: <%= @reservation.check_out_date %></p>
+<p>人数: <%= @reservation.guest_count %></p>
+<p>宿泊日数: <%= @reservation.stay_days %></p>
+<p>合計金額: <%= @reservation.calculate_total_price %></p>
+<%= form_with model: @reservation,
+              url: room_reservations_path(@room),
+              method: :post,
+              local: true,
+              data: { turbo: false } do |f| %>
+  <%= f.hidden_field :check_in_date %>
+  <%= f.hidden_field :check_out_date %>
+  <%= f.hidden_field :guest_count %>
+
+  <%= f.submit "確定して予約する" %>
+<% end %>
+
+<%= render 'shared/footer'%>
