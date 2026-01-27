@@ -1,27 +1,44 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reservation, only: [ :show, :edit, :update, :destroy ]
-  before_action :set_room_reservation, only: [ :new, :confirm, :create ]
+  before_action :set_room_reservation, only: [ :confirm, :create ]
   def index
     @reservations = current_user.reservations
   end
 
   def new
-    @reservation = current_user.reservations.build(room: @room)
+    if session[:reservation_params].present?
+      room_id = session[:reservation_params]["room_id"] || session[:reservation_params][:room_id]
+      @room = Room.find(room_id)
+      @reservation = current_user.reservations.build(session[:reservation_params])
+    else
+      set_room_reservation
+      @reservation = current_user.reservations.build(room: @room)
+      session.delete(:reservation_params)
+    end
   end
 
   def confirm
     @reservation = current_user.reservations.build(reservation_params.merge(room: @room))
 
-    unless @reservation.valid?
+    if @reservation.valid?
+      session[:reservation_params] = reservation_params.merge(room_id: @room.id)
+    else
       render :new, status: :unprocessable_entity
     end
   end
 
   def create
-    @reservation = current_user.reservations.build(reservation_params.merge(room: @room))
+    redirect_to reservations_path, notice: "すでに予約は作成されています" and return if session[:last_reservation_id].present?
+
+    room_id = session.dig(:reservation_params, "room_id") || session.dig(:reservation_params, :room_id)
+    @room = Room.find(room_id)
+
+    @reservation = current_user.reservations.build(session[:reservation_params])
 
     if @reservation.save
+      session[:last_reservation_id] = @reservation.id
+      session.delete(:reservation_params)
       redirect_to reservations_path, notice: "予約が作成されました"
     else
       render :new, status: :unprocessable_entity
