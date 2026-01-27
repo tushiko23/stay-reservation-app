@@ -1,40 +1,40 @@
   <%= render 'shared/header'%>
 <div class="content-wrapper">
-  <div class="search-content">
-    <div class="catch-phrase">
-      <p>宿泊予約アプリで</br>まだ体験したことのない</br>旅をしよう</p>
+  <div class="hero">
+    <div class="hero-copy">
+      <p>宿泊予約アプリで<br>まだ体験したことのない<br>旅をしよう</p>
     </div>
-    <div class="search-form">
+    <div class="hero-search-form">
       <%= search_form_for @q, url: rooms_path, local: true do |f| %>
-        <%= f.search_field :address_cont, placeholder: "エリア名", class: "text-area" %>
-        <%= f.submit "検索", class: "search-btn" %>
+        <%= f.search_field :address_cont, placeholder: "エリア名", class: "area-search-input" %>
+        <%= f.submit "検索", class: "hero-search-btn" %>
       <% end %>
     </div>
   </div>
 
-  <div class="area-inner">
+  <div class="recommend-areas">
     <h3>おすすめのエリア</h3>
-    <div class="product-grid">
-      <%= link_to rooms_path(q: { address_cont: "東京" }), class: "product-item" do %>
-        <div class="area">
+    <div class="area-grid">
+      <%= link_to rooms_path(q: { address_cont: "東京" }), class: "area-item" do %>
+        <div class="area-name">
           <p>東京</p>
           <p>Tokyo</p>
         </div>
       <% end %>  
-      <%= link_to rooms_path(q: { address_cont: "大阪" }), class: "product-item" do %>
-        <div class="area">
+      <%= link_to rooms_path(q: { address_cont: "大阪" }), class: "area-item" do %>
+        <div class="area-name">
           <p>大阪</p>
           <p>Osaka</p>
         </div>
       <% end %>
-      <%= link_to rooms_path(q: { address_cont: "京都" }), class: "product-item" do %>
-        <div class="area">
+      <%= link_to rooms_path(q: { address_cont: "京都" }), class: "area-item" do %>
+        <div class="area-name">
           <p>京都</p>
           <p>Kyoto</p>
         </div>
       <% end %>
-      <%= link_to rooms_path(q: { address_cont: "札幌" }), class: "product-item" do %>
-        <div class="area">
+      <%= link_to rooms_path(q: { address_cont: "札幌" }), class: "area-item" do %>
+        <div class="area-name">
           <p>札幌</p>
           <p>Sapporo</p>
         </div>
