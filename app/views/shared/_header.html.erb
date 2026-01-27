@@ -1,21 +1,22 @@
-<header>
+<header class="header" >
   <div class="header-inner">
     <h1>
-      <%= link_to "宿泊予約アプリ", root_path, class: "header-title" %>
+      <%= link_to "宿泊予約アプリ", root_path, class: "site-logo" %>
     </h1>
     <nav class="main-nav">
       <ul>
-        <li class="menu-item">
         <% if user_signed_in? %>
-          <a href="#">
+        <li class="user-menu">
+          <button type="button" class="user-menu-trigger">
             <% if @profile.icon.attached? %>
-              <span><%= image_tag @profile.icon, alt: 'ユーザーアイコン', class: 'calculator-icon' %></span>
+              <%= image_tag @profile.icon, alt: 'ユーザーアイコン', class: 'calculator-icon' %>
             <% else %>
-              <span><%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'calculator-icon' %></span>
+              <%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'calculator-icon' %>
             <% end %>
-            <span><%= current_user.name %>さん▼</span>
-          </a>
-          <div class="dropdown-menu">
+            <span><%= current_user.name %>さん</span>
+            <span class="caret">▼</span>
+          </button>
+          <div class="user-menu-dropdown">
             <ul>
               <li><%= link_to '施設の新規登録', new_room_path %></li>
               <li><%= link_to '予約済み一覧', reservations_path %></li>
@@ -24,6 +25,7 @@
               <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %></li>
             </ul>
           </div>
+        </li>
         <% else %>
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
