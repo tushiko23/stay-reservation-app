@@ -23,7 +23,7 @@
   }
 }
 
-.main-nav {
+.header-nav {
   ul {
     display: flex;
     list-style: none;
@@ -49,7 +49,7 @@
   }
 }
 
-.calculator-icon {
+.user-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -88,15 +88,15 @@
   z-index: 10;
 }
 
-.main-nav .user-menu-dropdown ul {
+.header-nav .user-menu-dropdown ul {
   display: block;   
 }
 
-.main-nav .user-menu-dropdown li {
+.header-nav .user-menu-dropdown li {
   display: block;   
 }
 
-.main-nav .user-menu-dropdown a {
+.header-nav .user-menu-dropdown a {
   display: block;   
   padding: 10px 14px;
   white-space: nowrap; 

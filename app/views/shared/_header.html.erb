@@ -3,18 +3,18 @@
     <h1>
       <%= link_to "宿泊予約アプリ", root_path, class: "site-logo" %>
     </h1>
-    <nav class="main-nav">
+    <nav class="header-nav">
       <ul>
         <% if user_signed_in? %>
         <li class="user-menu">
           <button type="button" class="user-menu-trigger">
             <% if @profile.icon.attached? %>
-              <%= image_tag @profile.icon, alt: 'ユーザーアイコン', class: 'calculator-icon' %>
+              <%= image_tag @profile.icon, alt: 'ユーザーアイコン', class: 'user-avatar' %>
             <% else %>
-              <%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'calculator-icon' %>
+              <%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'user-avatar' %>
             <% end %>
             <span><%= current_user.name %>さん</span>
-            <span class="caret">▼</span>
+            <span class="user-menu-caret">▼</span>
           </button>
           <div class="user-menu-dropdown">
             <ul>
@@ -30,7 +30,6 @@
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
         <% end %>
-        </li>
       </ul>
     </nav>
   </div>
