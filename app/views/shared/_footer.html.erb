@@ -1,12 +1,12 @@
 <footer class="footer">
   <div class="footer-inner">
-    <div class="header-title">
-    <h1>
-      <%= link_to "宿泊予約アプリ", root_path, class: "header-title" %>
-    </h1>
-    <p>&copy;2026 StayReservation. All Rights Reserved</p>
+    <div class="footer-logo-wrapper">
+      <%= link_to root_path, class: "site-logo" do %>
+        <p class="footer-service-name">宿泊予約アプリ</p>
+      <% end %>
+    <p class="footer-copyright">&copy;2026 StayReservation. All Rights Reserved</p>
     </div>
-    <ul class="footer_nav">
+    <ul class="footer-nav">
       <li><a href="#">About</a></li>
       <li><a href="#">サイトマップ</a></li>
       <li><a href="#">プライバシーポリシー</a></li>
