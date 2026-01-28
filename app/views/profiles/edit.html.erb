@@ -21,12 +21,12 @@
       <%= f.fields_for :user do |n| %>
         <div class="form-profile-row">
           <%= n.label :name, 'ユーザー名:', class: 'form-profile-label' %>
-          <%= n.text_field :name, class: 'form-profile-value form-profile-value-username' %>
+          <%= n.text_field :name, class: 'form-profile-value' %>
         </div>
       <% end %>
     <div class="form-profile-row">
       <%= f.label :introduction, '自己紹介:', class: 'form-profile-label' %>
-      <%= f.text_area :introduction, autocomplete: "introduction", class: 'form-profile-value form-profile-value-introduction' %>
+      <%= f.text_area :introduction, autocomplete: "introduction", class: 'form-profile-value' %>
     </div>
     <div class="form-profile-btn">
       <%= f.submit "編集する", class: 'profile-btn profile-btn-ope' %>
