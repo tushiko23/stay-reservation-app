@@ -1,27 +1,38 @@
 <%= render 'shared/header'%>
 
-<p>編集画面</p>
+<div class="form-container">
+  <h2>プロフィール編集</h2>
 
-<%= form_with model: @profile, url: settings_profile_path, local: true do |f| %>
-  <div class="">
-    <%= f.label :introduction, '自己紹介' %>
-    <%= f.text_area :introduction, autocomplete: "introduction" %>
-  </div>
-  <div class="">
-    <%= f.label :icon, 'アイコン画像' %>
-    <%= f.file_field :icon, autocomplete: "icon" %>
-  </div>
-  <%= f.fields_for :user do |n| %>
-    <div class="">
-      <%= n.label :name, 'ユーザー名' %>
-      <%= n.text_field :name %>
+  <div class="form-wrapper">
+  <%= form_with model: @profile, url: settings_profile_path, local: true do |f| %>
+    <div class="form-profile-row">
+      <%= f.label :icon, 'アイコン画像:', class: "form-profile-label" %>
+      <div class="form-profile-media">
+      <% if @profile.icon.attached? %>
+        <%= image_tag @profile.icon, size: '80x80', alt: 'ユーザーアイコン', class: 'form-profile-value-img' %>
+      <% else %>
+        <%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'form-profile-value-img' %>
+      <% end %>
+        <label for="profile_icon" class="icon-upload-btn">画像をアップロード</label>
+        <span class="file-name">選択されていません</span>
+        <%= f.file_field :icon, id: "profile_icon", autocomplete: "icon", class: 'icon-input' %>
+      </div>
+    </div>
+      <%= f.fields_for :user do |n| %>
+        <div class="form-profile-row">
+          <%= n.label :name, 'ユーザー名:', class: 'form-profile-label' %>
+          <%= n.text_field :name, class: 'form-profile-value' %>
+        </div>
+      <% end %>
+    <div class="form-profile-row">
+      <%= f.label :introduction, '自己紹介:', class: 'form-profile-label' %>
+      <%= f.text_area :introduction, autocomplete: "introduction", class: 'form-profile-value' %>
+    </div>
+    <div class="form-profile-row">
+      <%= f.submit "編集する", class: 'profile-btn profile-btn-ope' %>
+      <%= link_to "戻る", settings_path(tab: :profile), class: 'profile-btn profile-btn-return' %>
     </div>
   <% end %>
-  <div class="actions">
-    <%= f.submit "編集する" %>
   </div>
-<% end %>
-
-<%= link_to "戻る", settings_path(tab: :profile) %>
-
+</div>
 <%= render 'shared/footer'%>
