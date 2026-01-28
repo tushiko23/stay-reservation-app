@@ -1,0 +1,136 @@
+.form-container {
+  
+  .edit-account-label {
+    font-weight: bold;
+  }
+}
+
+.edit-account-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 1.25rem auto;
+  small {
+    font-weight: bold;
+  }
+}
+
+.edit-account-title {
+  display: block;
+
+  small {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+.edit-account-title {
+  flex: 0 0 25%;
+  min-width: 0
+}
+
+.edit-account-value {
+  flex: 0 0  50%;
+  padding: .5rem;
+  box-sizing: border-box;
+  height: 2.5rem;
+  resize: none;
+  border: 1px solid #64748b;
+  border-radius: 4px;
+}
+
+.form-edit-account-btn {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin: 1rem auto 0;
+
+  .edit-account-btn {
+    &-ope {
+      flex: 0 0 50%;
+    }
+
+    &-return {
+      flex: 0 0 50%;
+    }
+  }
+}
+
+.edit-account-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+  margin: 16px 24px;
+
+  &-ope {
+    color: #fff;
+    background-color: #64748b;
+
+    &:hover {
+      background-color: #475569;
+    }
+  }
+
+  &-return {
+    color: #64748b;
+    border: 2px solid #64748b;
+
+    &:hover {
+      background-color: #475569;
+      color: #fff;
+    }
+  }
+}
+
+
+.page-center-error {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 9999;
+
+  width: 90vw;
+  max-width: 600px;
+  padding: 12px 18px;
+  border-radius: 10px;
+
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+
+  font-weight: bold;
+  text-align: center;
+
+  animation: fadeOut 2.5s ease forwards;
+}
+
+
+.page-center-error {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 9999;
+
+  width: 90vw;
+  max-width: 600px;
+  padding: 12px 18px;
+  border-radius: 10px;
+
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+
+  font-weight: bold;
+  text-align: center;
+  animation: fadeOut 2.5s ease forwards;
+
+  background-color: #fef2f2;
+  border: 2px solid #fca5a5;
+  color: #991b1b;
+}

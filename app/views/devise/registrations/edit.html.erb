@@ -1,42 +1,61 @@
-<%= render 'shared/header'%>
-
-<h2>アカウント</h2>
-
-<%= form_with model: @user, url: user_registration_path, method: :put, local: :true do |f| %>
+<% if resource.errors.any? %>
+<div class="page-center-error">
   <%= render "devise/shared/error_messages", resource: resource %>
+</div>
+<% end %>
+<%= render 'shared/header'%>
+<div class="form-container">
+  <h2>アカウント編集</h2>
 
-  <div class="field">
-    <%= f.label :email %><small>※変更する場合は新しいメールアドレスを入力</small><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="form-wrapper">
+  <%= form_with model: @user, url: user_registration_path, method: :put, local: :true do |f| %>
+    <div class="edit-account-row">
+      <div class= "edit-account-title">
+      <%= f.label :email, class: 'edit-account-label' %><small>※変更する場合</small>
+      </div>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'edit-account-value' %>
+    </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>現在このメールアドレスの確認待ちです：<%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password, "変更後パスワード" %> 
-    <small>※パスワードを変更する場合</small>
-    <% if @minimum_password_length %>
-      <small>※<%= @minimum_password_length %>字以上で入力</small><br>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更後のパスワードを入力" %>
+  <div class="edit-account-row">
+    <div class= "edit-account-title">
+    <%= f.label :password, "変更後パスワード", class: 'edit-account-label' %>
+      <small>※変更する場合
+        <% if @minimum_password_length %>
+          ※<%= @minimum_password_length %>字以上で入力
+        <% end %>
+      </small>
+    </div>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更後のパスワードを入力", class: 'edit-account-value' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "確認パスワード" %>
-    <small>※パスワードを変更する場合</small><br>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "変更後のパスワードを入力" %>
+  <div class="edit-account-row">
+    <div class= "edit-account-title">
+      <%= f.label :password_confirmation, "確認パスワード", class: 'edit-account-label' %><br>
+      <small>※変更する場合</small>
+    </div>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "変更後のパスワードを入力", class: 'edit-account-value' %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %><small>※必須</small><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力" %>
+  <div class="edit-account-row">
+    <div class= "edit-account-title">
+    <%= f.label :current_password, class: "edit-account-label" %><small>※必須</small>
+    </div>
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力", class: 'edit-account-value' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "編集する" %>
+  <div class="form-edit-account-btn">
+    <%= f.submit "編集する", class: "edit-account-btn edit-account-btn-ope" %>
+    <%= link_to "戻る", settings_path(tab: :account), class: 'edit-account-btn edit-account-btn-return' %>
   </div>
-<% end %>
 
-<%= link_to "戻る", settings_path(tab: :account) %>
+  <% end %>
+  </div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>
