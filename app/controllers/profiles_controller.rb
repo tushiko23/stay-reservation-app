@@ -22,14 +22,14 @@ class ProfilesController < ApplicationController
 
   ActiveRecord::Base.transaction do
     profile_updates = {}
-    profile_updates[:introduction] = intro unless intro.empty?
+    profile_updates[:introduction] = intro
     profile_updates[:icon] = pp[:icon] if icon_present
 
     @profile.update!(profile_updates) if profile_updates.any?
-    @user.update!(name: name) unless name.empty?
+    @user.update!(name: name)
   end
 
-  redirect_to settings_path, notice: 'プロフィールが更新されました'
+  redirect_to settings_path(tab: :profile), notice: 'プロフィールが更新されました'
 
   rescue ActiveRecord::RecordInvalid
     @user = current_user
