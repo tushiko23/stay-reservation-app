@@ -21,18 +21,21 @@
       <%= f.fields_for :user do |n| %>
         <div class="form-profile-row">
           <%= n.label :name, 'ユーザー名:', class: 'form-profile-label' %>
-          <%= n.text_field :name, class: 'form-profile-value' %>
+          <%= n.text_field :name, class: 'form-profile-value form-profile-value-username' %>
         </div>
       <% end %>
     <div class="form-profile-row">
       <%= f.label :introduction, '自己紹介:', class: 'form-profile-label' %>
-      <%= f.text_area :introduction, autocomplete: "introduction", class: 'form-profile-value' %>
+      <%= f.text_area :introduction, autocomplete: "introduction", class: 'form-profile-value form-profile-value-introduction' %>
     </div>
-    <div class="form-profile-row">
+    <div class="form-profile-btn">
       <%= f.submit "編集する", class: 'profile-btn profile-btn-ope' %>
       <%= link_to "戻る", settings_path(tab: :profile), class: 'profile-btn profile-btn-return' %>
     </div>
   <% end %>
   </div>
 </div>
+
+<%= render 'shared/hero_recommend_area'%>
+
 <%= render 'shared/footer'%>
