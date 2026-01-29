@@ -1,0 +1,89 @@
+.sign_up-account-container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2rem;
+    border-bottom: solid 0.25rem orange;
+    width: fit-content;
+    margin: 2rem auto;
+  }
+}
+
+.sign_up-account-wrapper {
+  width: 80%;
+  margin: 20px auto;
+  padding-top: 20px;
+  background: #fff;
+  border: 2px solid #f2a23a;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,.08);
+
+  form {
+    margin: 0 auto;
+  }
+}
+
+.sign_up-account-row {
+  display: flex;
+  gap: 1rem;
+  margin: 1.25rem auto;
+  align-items: center;
+  justify-content: center;
+
+  label {
+    font-weight: bold;
+  }
+
+  small{
+    font-weight: bold;
+    color: red;
+  }
+}
+
+.sign_up-account-row .field_with_errors {
+  display: contents;
+}
+
+
+.sign_up-account-title {
+  display: block;
+  width: 90%;
+
+  small {
+    display: block;
+    white-space: nowrap;
+  }
+} 
+
+.sign_up-account-title {
+  flex: 0 0 25%;
+}
+
+.sign_up-account-value {
+  flex: 0 0 50%;
+  padding: .5rem;
+  box-sizing: border-box;
+  height: 2.5rem;
+  resize: none;
+  border: 1px solid #64748b;
+  border-radius: 4px;
+}
+
+.form-new-sign_up-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.form-new-sign_up-btn input,
+.form-new-sign_up-btn a {
+  width: 320px;
+  text-align: center;
+}
+
+
+.new-sign_up-btn {
+  font-size: 1rem;
+}
