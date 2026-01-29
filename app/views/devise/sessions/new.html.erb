@@ -1,10 +1,9 @@
 
 <%= render 'shared/header'%>
-
 <div class="login-account-container">
+  <h2>ログイン</h2>
   <div class="login-account-wrapper ">
   <%= form_with(scope: :user, url: user_session_path, local: true ) do |f| %>
-      <h2>ログイン</h2>
       <div class="login-account-row">
         <%= f.label :email, class: "login-account-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-account-value" %>
