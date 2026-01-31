@@ -1,18 +1,6 @@
-<%= render 'shared/header'%>
+<%= render 'shared/header' %>
 
-<div class="search-form-container">
-  <%= search_form_for @q_form, url: rooms_path, class: "search-form-rooms", local: true do |f| %>
-    <div class="search-field-area">
-      <%= f.search_field :address_cont, placeholder: "エリア名", class: "search-form-value" %>
-    </div>
-    <div class="search-field-keyword">
-      <%= f.search_field :name_or_introduction_cont, placeholder: "キーワード", class: "search-form-value" %>
-    </div>
-    <div class="search-area-keyword-btn">
-      <%= f.submit "検索", class: "search-form-btn" %>
-    </div>
-<% end %>
-</div>
+<%= render 'shared/search_room_area_keyword_form' %>
 
 <div class="room-index-container">
   <div class="search-result-field">

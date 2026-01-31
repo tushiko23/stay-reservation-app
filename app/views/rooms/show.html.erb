@@ -1,4 +1,7 @@
   <%= render 'shared/header'%>
+
+  <%= render 'shared/search_room_area_keyword_form' %>
+
   <div>
     <%= link_to "←戻る", :back %>
     <% if user_signed_in? && @room.user == current_user %>
