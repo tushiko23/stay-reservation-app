@@ -1,5 +1,84 @@
 @import 'variables';
 
+.created-room-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .created-room-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+
+    h2 {
+      font-size: 1.75rem;
+      border-bottom: solid 0.25rem orange;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+
+      color: #475569;
+      border: 1.5px solid #94A3B8;
+      padding: 8px 12px;
+      width: 100px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: rgba(71, 85, 105, 0.08);
+        color: #334155;
+      }
+      }
+    }
+  }
+
+  .created-room-wrapper {
+    margin: 2rem auto;
+  }
+
+.created-room-table {
+  width: 100%;
+  border-collapse: collapse; 
+  table-layout: fixed; 
+}
+
+
+.created-room-tr, .created-room-td {
+  padding: 16px 10px;
+  border-bottom: 2px solid #ddd;
+  text-align: center; 
+  font-weight: bold;
+  img {
+    border-radius: 12px;
+  }
+
+  &-name {
+    color: #0071C1;
+    text-decoration: none;
+
+    &:hover {
+      color: #005A9E;
+    }
+  }
+}
+
+.created-room-th {
+  background-color: #FFF4E6; /* ヘッダーの背景色 */
+  color: #7A4A1E;
+  font-weight: bold; /* ヘッダーを太字に */
+  padding: 16px;
+}
+
+.created-room-tbody {
+  background-color: #F8FBFE;
+}
 .dropdown-menu-own {
   position: relative;
   padding: 0;
@@ -15,25 +94,39 @@
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+
+  left: 50%;
+  transform: translateX(-50%);
+
   z-index: 1000;
   min-width: 120px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 0;
-  margin: 0;
+  background-color: aliceblue;
+  margin: 0 auto;
+  padding: 8px;
+  border: none;
+  justify-content: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   text-align: left;
+
+
   ul {
     padding-left: 0;
     margin: 0;
   }
+  
   li {
     list-style: none;
+
+    a:hover {
+      color: #007bff;;
+    }
   }
 }
 
 .dropdown-menu-own:hover .dropdown-menu-own-content {
   display: block;
+  justify-content: center;
+  
 }
+
 
