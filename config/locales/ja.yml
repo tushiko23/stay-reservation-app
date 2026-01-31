@@ -14,3 +14,11 @@ ja:
         check_in_date: 'チェックイン日'
         check_out_date: 'チェックアウト日'
         guest_count: '宿泊人数'
+  number:
+    currency:
+      format:
+        unit: "¥"
+        precision: 0
+        delimiter: ","
+        format: "%u%n"
+
