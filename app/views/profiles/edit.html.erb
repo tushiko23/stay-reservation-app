@@ -14,8 +14,8 @@
         <%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'form-profile-value-img' %>
       <% end %>
         <label for="profile_icon" class="icon-upload-btn">画像をアップロード</label>
-        <span class="file-name">選択されていません</span>
-        <%= f.file_field :icon, id: "profile_icon", autocomplete: "icon", class: 'icon-input' %>
+        <span class="file-name" data-filename="profile-file-name" >選択されていません</span>
+        <%= f.file_field :icon, id: "profile_icon", autocomplete: "icon", class: 'icon-input js-file-input', data: { filename_target: "profile-file-name" }  %>
       </div>
     </div>
       <%= f.fields_for :user do |n| %>
