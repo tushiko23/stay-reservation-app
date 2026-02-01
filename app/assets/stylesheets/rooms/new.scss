@@ -14,7 +14,7 @@
 
 .form-room-new-wrapper {
   width: 100%;
-  padding: 2rem;
+  padding: 3rem;
 
   background: #fff;
   border: 2px solid #f2a23a;
@@ -42,13 +42,17 @@
   small {
     margin-left: 6px;
     font-size: 0.75rem;
-    color: #dc2626;
+    font-weight: bold;
+    color:  #F97316;
+    background-color: #FFEDD5;
+    padding: 6px;
+    border-radius: 6px;
   }
 }
 
 .form-room-new-error {
   margin-top: 4px;
-  color: #dc2626;
+  color:  #EA580C;
   font-size: 0.8rem;
 }
 
