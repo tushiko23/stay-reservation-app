@@ -1,6 +1,6 @@
 @import 'variables'; 
 
-.form-room-new-container {
+.form-room-container {
   width: 800px;
   margin: 0 auto;
 
@@ -12,7 +12,7 @@
   }
 }
 
-.form-room-new-wrapper {
+.form-room-wrapper {
   width: 100%;
   padding: 1rem 2rem;
 
@@ -23,18 +23,18 @@
 }
 
 
-.form-room-new-row.horizontal {
+.form-room-row.form-room-horizontal {
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 8px;
 }
 
-.form-room-new-meta {
+.form-room-meta {
   width: 30%;
 }
 
-.form-room-new-title {
+.form-room-title {
   font-weight: 600;
   font-size: 1rem;
 
@@ -49,17 +49,17 @@
   }
 }
 
-.form-room-new-error {
+.form-room-error {
   margin-top: 4px;
   color:  #EA580C;
   font-size: 0.8rem;
 }
 
-.form-room-new-input {
+.form-room-input {
   width: 75%;
 }
 
-.form-room-new-value {
+.form-room-value {
   width: 100%;
   min-height: 48px;
   padding: 10px 12px;
@@ -68,11 +68,11 @@
   font-size: 0.95rem;
 }
 
-.form-room-new-media {
+.form-room-media {
   margin-top: 32px;
 }
 
-.form-room-new-introduction {
+.form-room-introduction {
   height: 150px;
 }
 
@@ -104,19 +104,19 @@
   }
 }
 
-.form-room-new-media {
+.form-room-media {
   display: flex;
   gap: 1rem;
 }
 
-.form-room-new-media-label {
+.form-room-media-label {
   flex: 0 0 35%;
 }
-.form-room-new-media-input {
+.form-room-media-input {
   flex: 0 0 65%;
 }
 
-.form-room-new-btn {
+.form-room-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,7 +124,7 @@
 
   margin: 24px 0 16px;
 
-  .room-new-btn {
+  .room-btn {
     width: 450px;
     padding: 16px 20px;
     font-size: 20px;
@@ -153,4 +153,3 @@
   }
 
 }
-

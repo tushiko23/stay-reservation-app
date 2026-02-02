@@ -7,8 +7,10 @@
 @import 'profiles/edit';
 @import 'rooms/index';
 @import 'rooms/own';
-@import 'rooms/new';
+
 @import 'rooms/show';
+@import "rooms/form";
+
 @import 'devise/resistrations/account_edit';
 @import 'devise/resistrations/signup';
 @import 'devise/sessions/login';
