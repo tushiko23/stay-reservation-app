@@ -1,10 +1,10 @@
 @import 'variables';
 
-.created-room-container {
+.reserved-room-container {
   max-width: 1200px;
   margin: 0 auto;
 
-  .created-room-header {
+  .reserved-room-header {
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
@@ -39,18 +39,18 @@
     }
   }
 
-  .created-room-wrapper {
+  .reserved-room-wrapper {
     margin: 2rem auto;
   }
 
-.created-room-table {
+.reserved-room-table {
   width: 100%;
   border-collapse: collapse; 
   table-layout: fixed; 
 }
 
 
-.created-room-tr, .created-room-td {
+.reserved-room-tr, .reserved-room-td {
   padding: 16px 10px;
   border-bottom: 2px solid #ddd;
   text-align: center; 
@@ -69,14 +69,15 @@
   }
 }
 
-.created-room-th {
+.reserved-room-th {
   background-color: #FFF4E6;
   color: #7A4A1E;
   font-weight: bold;
   padding: 16px;
+  white-space: nowrap;
 }
 
-.created-room-tbody {
+.reserved-room-tbody {
   background-color: #F8FBFE;
 }
 .dropdown-menu-own {
@@ -128,5 +129,3 @@
   justify-content: center;
   
 }
-
-
