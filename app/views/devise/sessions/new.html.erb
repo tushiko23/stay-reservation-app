@@ -17,6 +17,7 @@
       <div class="login-account-btn">
         <%= f.submit "ログイン", class: "account-btn account-btn-ope" %>
         <%= render "devise/shared/links", class: "login-account-btn-return" %>
+        <%= link_to '← 戻る', request.referer || rooms_path, class: "account-btn account-btn-return" %>
       </div>
 
     </div>

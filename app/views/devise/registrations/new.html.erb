@@ -48,6 +48,7 @@
   <div class="form-new-sign_up-btn">
     <div><%= f.submit "新しいアカウントを作成", class: "new-sign_up-btn account-btn account-btn-ope" %></div>
     <div><%= render "devise/shared/links" %></div>
+    <%= link_to '← 戻る', request.referer || rooms_path, class: "account-btn account-btn-return" %>
   </div>
     <% end %>
   </div>
