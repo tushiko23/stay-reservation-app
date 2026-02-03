@@ -2,17 +2,25 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reservation, only: [ :show, :edit, :update, :destroy ]
   before_action :set_room_reservation, only: [ :new, :confirm, :create ]
-  before_action :set_previous_url, only: [ :new, :index ]
-  before_action :fetch_previous_url, only: [ :confirm, :create ]
+  before_action :set_previous_url, only: [ :index ]
+  before_action :fetch_previous_url, only: [ :new, :confirm, :create ]
   def index
     @reservations = current_user.reservations
   end
 
   def new
+    @previous_url = params[:previous_url] || request.referer
+
+    # 【重要】もし取得したURLが「自分自身」や「確認画面」なら、上書きせずに「お部屋詳細」などをデフォルトにする
+    if @previous_url.present? && (@previous_url.include?("/reservations/new") || @previous_url.include?("/confirm"))
+      # 既にバケツリレーが壊れている場合やリロード対策として、@previous_url を書き換えない工夫
+      # 何もしない、もしくは @room の詳細ページを代入しておく
+      @previous_url = params[:previous_url] if params[:previous_url].present?
+    end
+
     if params[:back] && session[:reservation_params].present?
       @reservation = current_user.reservations.build(session[:reservation_params])
     else
-      set_room_reservation
       @reservation = current_user.reservations.build(room: @room)
       session.delete(:reservation_params)
     end

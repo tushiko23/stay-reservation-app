@@ -5,7 +5,7 @@
   <div class="room-show-container">
 
     <div class="room-show-header">
-      <%= link_to '← 戻る', request.referer || rooms_path, class: "room-btn-return" %>
+      <%= link_to '← 戻る', @previous_url || rooms_path, class: "room-btn-return" %>
       <% if user_signed_in? && @room.user == current_user %>
       <%= link_to "編集する", edit_room_path(@room), class: "room-btn-edit" %>
       <% end %>

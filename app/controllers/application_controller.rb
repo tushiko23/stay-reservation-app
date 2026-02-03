@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
 
   # 新規・編集画面に入った時に、"本当の前のページ"を保存する
   def set_previous_url
+    return if @previous_url.present?
     @previous_url = request.referer if request.referer.present? && !request.referer.include?(request.path)
   end
 

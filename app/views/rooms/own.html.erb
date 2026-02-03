@@ -3,7 +3,7 @@
 <div class="created-room-container">
   <div class="created-room-header">
     <h2>作成した施設一覧</h2>
-    <%= link_to '← 戻る', request.referer || rooms_path %>
+    <%= link_to '← 戻る', @previous_url || rooms_path %>
   </div>
   <div class="created-room-wrapper">  
   <table class="created-room-table">
