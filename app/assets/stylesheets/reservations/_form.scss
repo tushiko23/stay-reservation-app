@@ -1,0 +1,192 @@
+@import 'variables'; 
+
+.form-reserve-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  h2 {
+    font-size: 2rem;
+    border-bottom: solid 0.25rem orange;
+    width: fit-content;
+    margin: 0 auto 32px;
+  }
+}
+
+.form-reserve-wrapper {
+  width: 100%;
+  align-items: center;
+  margin: 32px auto;
+
+  .form-reserve {
+    display: flex;
+  }
+}
+
+.reserve-form-info-room-field {
+  min-width: 0;
+  flex: 1 1 0;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: auto;
+
+  .reserve-form-room-field {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .reserve-form-room-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: auto;
+
+    text-align: left;
+    background: #FFF7ED;
+    border: 2px solid #f2a23a;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 8px 16px; 
+
+  }
+  .reserve-form-img-field {
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .reserve-show-img {
+    width: 60%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  h3 {
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+
+}
+
+  .reserve-address-value {
+    color: #616161;
+    font-size: 14px;
+    background-color:  #FFE8CC;
+    padding: 4px 8px;
+    border-radius: 10px;
+    width: fit-content;
+  }
+  .reserve-introduction-value {
+    height: auto;
+  }
+
+  .reserve-fee_per_day-value {
+    color: #F0643A;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+
+.reserve-form-info-reserve-field {
+  min-width: 0;
+  flex: 1 1 0;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  background: #FFF7ED;
+  border: 2px solid #f2a23a;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 16px;
+  margin: auto; 
+}
+
+.reserve-show-img {
+  width: 50%;
+  height: 160px;
+}
+
+.reserve-form-label {
+  font-size: 1.25rem;
+  font-weight: bold;
+
+
+  small {
+    margin-left: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color:  #F97316;
+    background-color: #FFEDD5;
+    padding: 6px;
+    border-radius: 6px;
+  }
+}
+
+.form-reserve-error {
+  margin-top: 4px;
+  margin-left: 8px;
+  color: #EA580C;
+  font-size: 0.8rem;
+}
+
+.field_with_errors {
+  display: contents;
+}
+.reserve-form-meta {
+  display: flex;
+  margin-bottom: 8px;
+}
+.reserve-form-date_field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: white;
+  width: 75%;
+  box-sizing: border-box; 
+}
+
+.reserve-form-number {
+  padding: 10px;
+}
+
+.form-reserve-btn {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  margin: 24px auto;
+
+.reserve-btn {
+    width: 12.5rem;
+    padding: 16px 20px;
+    font-size: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 12px;
+
+    &-ope {
+    background-color: #F0643A;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    }
+
+    &-return {
+    text-decoration: none;
+    transition: 0.3s;
+    border: 2px solid #64747b;
+    background-color: #FFF;
+    color: #64748b;
+    font-weight: bold;
+    }
+  }
+}
