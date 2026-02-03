@@ -14,7 +14,7 @@
       </div>
       <div class="tabs-account-btn">
       <%= link_to '編集する', edit_user_registration_path, class: 'account-btn account-btn-ope' %>
-      <%= link_to "トップに戻る", root_path, class: 'account-btn account-btn-return' %>
+      <%= link_to "戻る", request.referer || rooms_path, class: 'account-btn account-btn-return' %>
       </div>
     </div>
       <label class="tabs-menu-label"><input type="radio" name="tab-2" <%= 'checked' if params[:tab] == 'profile'%> >プロフィール</label>
@@ -37,7 +37,7 @@
       </div>
       <div class="tabs-account-btn">
         <%= link_to '編集する', edit_settings_profile_path, class: 'account-btn account-btn-ope' %>
-        <%= link_to "トップに戻る", root_path, class: 'account-btn account-btn-return' %>
+        <%= link_to "戻る", request.referer || rooms_path, class: 'account-btn account-btn-return' %>
       </div>
     </div>
   </div> 
