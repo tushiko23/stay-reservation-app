@@ -7,7 +7,9 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    if session[:reservation_params].present?
+    from_confirm = request.referer&.include?("confirm")
+
+    if from_confirm && session[:reservation_params].present?
       room_id = session[:reservation_params]["room_id"] || session[:reservation_params][:room_id]
       @room = Room.find(room_id)
       @reservation = current_user.reservations.build(session[:reservation_params])
@@ -19,6 +21,7 @@ class ReservationsController < ApplicationController
   end
 
   def confirm
+    session.delete(:last_reservation_id)
     @reservation = current_user.reservations.build(reservation_params.merge(room: @room))
 
     if @reservation.valid?
