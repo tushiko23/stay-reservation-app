@@ -1,4 +1,8 @@
-<%= render "devise/shared/error_messages", resource: resource %>
+<% if resource.errors.any? %>
+<div class="page-center-error">
+  <%= render "devise/shared/error_messages", resource: resource %>
+</div>
+<% end %>
 
 <%= render 'shared/header'%>
 
