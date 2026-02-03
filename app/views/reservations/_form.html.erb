@@ -1,0 +1,94 @@
+<div class="form-reserve-container">
+  <h2><%= title %></h2>
+
+  <div class="form-reserve-wrapper">
+  <%= form_with model: reservation, class: 'form-reserve', url: form_url, class: 'form-reserve', local: true, data: { turbo: false } do |f| %>
+
+  <div class="reserve-form-info-room-field">
+  <div class="reserve-form-img-field"> 
+    <% if @reservation.room.image.attached? %>
+      <%= image_tag @reservation.room.image, class: 'reserve-show-img', alt: '宿泊先の画像' %>
+    <% else %>
+      <%= image_tag 'default-room.png', class: 'reserve-show-img', alt: '宿泊先のデフォルト画像' %>
+    <% end %>
+  </div>
+
+  <div class="reserve-form-room-field">
+      <h3><%= @reservation.room.name %></h3>
+      <span class="reserve-address-value"><%= @reservation.room.address %></span>
+      <p class="reserve-introduction-value"><%= @reservation.room.introduction%></p>
+    
+      <p class="reserve-fee_per_day-value"><%= number_to_currency(@reservation.room.fee_per_day) %>円~</p>
+  </div>
+  </div>
+
+  <div class="reserve-form-info-reserve-field">
+    <div class="form-reserve-row form-reserve-horizontal">
+      <div class="reserve-form-meta">
+        <div class="form-room-label">
+          <%= f.label :check_in_date, class: 'reserve-form-label' do %>
+            チェックイン日<small>※必須</small>
+          <% end%>
+        </div>
+        <div class="form-reserve-error">
+          <% if f.object.errors.has_key?(:check_in_date) %>
+          <%= f.object.errors.full_messages_for(:check_in_date).join(", ") %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-reserve-date">
+      <%= f.date_field :check_in_date, class: 'reserve-form-date_field' %>
+      </div>
+    </div>
+
+    <div class="form-reserve-row form-reserve-horizontal">
+      <div class="reserve-form-meta">
+        <div class="reserve-form-label">
+          <%= f.label :check_out_date, class: 'reserve-form-label' do %>
+            チェックアウト日<small>※必須</small>
+          <% end %> 
+        </div>
+      
+        <div class="form-reserve-error">
+          <% if f.object.errors.has_key?(:check_out_date) %>
+            <%= f.object.errors.full_messages_for(:check_out_date).join(", ") %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-reserve-date">
+        <%= f.date_field :check_out_date, class: 'reserve-form-date_field' %>
+      </div>  
+    </div>
+
+    <div class="form-reserve-row form-reserve-horizontal">
+      <div class="reserve-form-meta">
+        <div class="form-reserve-label">
+          <%= f.label :guest_count, class: 'reserve-form-label' do  %>
+            人数<small>*必須</small>
+          <% end %>
+        </div>
+
+        <div class="form-reserve-error">  
+          <% if f.object.errors.has_key?(:guest_count) %>
+            <%= f.object.errors.full_messages_for(:guest_count).join(", ") %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-reserve-number-input">
+        <%= f.number_field :guest_count, min: 0, step: 1, class: 'reserve-form-number' %>
+      </div>
+    </div>
+
+    <div class="form-reserve-btn">
+      <%= f.submit submit_btn, class: "reserve-btn reserve-btn-ope" %>
+      <%= link_to '← 戻る', request.referer || rooms_path, class: "reserve-btn reserve-btn-return" %>
+    </div>
+
+  </div>
+    <% end %>
+  </div>
+  </div>
+</div>

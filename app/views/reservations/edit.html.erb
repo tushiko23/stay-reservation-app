@@ -1,48 +1,12 @@
 <%= render 'shared/header'%>
-<h2>編集画面の表示</h2>
-<%= form_with model: @reservation, url: reservation_path(@reservation), local: true do |f| %>
-  
-  <div> 
-    <% if @reservation.room.image.attached? %>
-    <p><%= image_tag @reservation.room.image, size: '100x100', alt: '宿泊先の画像' %></p>
-    <% else %>
-    <p><%= image_tag 'default-room.png', size: '100x100', alt: '宿泊先のデフォルト画像' %></p>
-    <% end %>
-  </div>
-  <h2>施設名: <%= @reservation.room.name %></h2>
-  <p><%= @reservation.room.fee_per_day %>円~</p>
-  <div><%= @reservation.room.address %></div>
-  <div>
-    <%= f.label :check_in_date, 'チェックイン日' %>
-    <%= f.date_field :check_in_date %>
-    <% if f.object.errors.has_key?(:check_in_date) %>
-      <span style="color: red;">
-    <%= f.object.errors.full_messages_for(:check_in_date).join(", ") %>
-      </span>
-    <% end %>
-  </div>
-  <div>
-    <%= f.label :check_out_date, 'チェックアウト日' %>
-    <%= f.date_field :check_out_date %>
-    <% if f.object.errors.has_key?(:check_out_date) %>
-      <span style="color: red;">
-    <%= f.object.errors.full_messages_for(:check_out_date).join(", ") %>
-      </span>
-    <% end %>
-  </div>
-  <div>
-    <%= f.label :guest_count, '人数' %>
-    <%= f.number_field :guest_count, min: 0, step: 1 %>人
-    <% if f.object.errors.has_key?(:guest_count) %>
-      <span style="color: red;">
-    <%= f.object.errors.full_messages_for(:guest_count).join(", ") %>
-      </span>
-    <% end %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-  <%= link_to "キャンセル", :back %>
-<% end %>
+
+<%= render 'form', 
+          title: '予約の編集', 
+          submit_btn: '編集する',
+          reservation: @reservation,
+          form_url: reservation_path(@reservation) %>
+
+<%= render 'shared/hero_recommend_area'%>
 
 <%= render 'shared/footer'%>
+
