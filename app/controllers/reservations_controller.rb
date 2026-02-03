@@ -1,17 +1,15 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reservation, only: [ :show, :edit, :update, :destroy ]
-  before_action :set_room_reservation, only: [ :confirm, :create ]
+  before_action :set_room_reservation, only: [ :new, :confirm, :create ]
+  before_action :set_previous_url, only: [ :new, :index ]
+  before_action :fetch_previous_url, only: [ :confirm, :create ]
   def index
     @reservations = current_user.reservations
   end
 
   def new
-    from_confirm = request.referer&.include?("confirm")
-
-    if from_confirm && session[:reservation_params].present?
-      room_id = session[:reservation_params]["room_id"] || session[:reservation_params][:room_id]
-      @room = Room.find(room_id)
+    if params[:back] && session[:reservation_params].present?
       @reservation = current_user.reservations.build(session[:reservation_params])
     else
       set_room_reservation
@@ -21,26 +19,28 @@ class ReservationsController < ApplicationController
   end
 
   def confirm
-    session.delete(:last_reservation_id)
-    @reservation = current_user.reservations.build(reservation_params.merge(room: @room))
+    @reservation = current_user.reservations.build(reservation_params)
+    @reservation.room = @room # room_id が missing でも before_action でセット済み
 
     if @reservation.valid?
       session[:reservation_params] = reservation_params.merge(room_id: @room.id)
     else
+      # エラー時は new を表示。この時 @room が必要。
       render :new, status: :unprocessable_entity
     end
   end
 
   def create
-    redirect_to reservations_path, notice: "すでに予約は作成されています" and return if session[:last_reservation_id].present?
-
-    room_id = session.dig(:reservation_params, "room_id") || session.dig(:reservation_params, :room_id)
-    @room = Room.find(room_id)
+    # session[:reservation_params] が空（＝一度保存して削除済み）なのに
+    # createにアクセスしてきた場合は、既に処理済みとみなしてリダイレクト
+    if session[:reservation_params].blank?
+      return redirect_to reservations_path, notice: "セッションがタイムアウトしたか、既に予約済みです"
+    end
 
     @reservation = current_user.reservations.build(session[:reservation_params])
+    @reservation.room = @room
 
     if @reservation.save
-      session[:last_reservation_id] = @reservation.id
       session.delete(:reservation_params)
       redirect_to reservations_path, notice: "予約が作成されました"
     else

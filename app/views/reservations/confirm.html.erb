@@ -14,14 +14,22 @@
     <p class="reserve-confirm-message">上記内容で正しければ「確定」ボタンを押してください。</p>
     <div class="reserve-confirm-btn">
       <%= form_with model: @reservation, url: room_reservations_path(@room), method: :post, local: true, data: { turbo: false } do |f| %>
+        <%# 1. 最初に取得したURLを confirm アクションへ送る %>
+        <%= hidden_field_tag :previous_url, @previous_url %>
+  
+        <%# room_id も送る（before_actionで使うため） %>
+        <%= hidden_field_tag :room_id, @room.id %>
         <%= f.hidden_field :check_in_date %>
         <%= f.hidden_field :check_out_date %>
         <%= f.hidden_field :guest_count %>
 
+        <div class="form-reserve-btn">
         <%= f.submit "確定して予約する", class: 'confirm-btn confirm-btn-ope' %>
+        <%= link_to '内容を修正する', new_reservation_path(room_id: @room.id, back: true, previous_url: @previous_url), class: "confirm-btn confirm-btn-return" %>
+        </div>
       <% end %>
 
-      <%= link_to "キャンセル", request.referer || rooms_path, class: "confirm-btn confirm-btn-return" %>
+      
     </div>
   </div>
 </div>

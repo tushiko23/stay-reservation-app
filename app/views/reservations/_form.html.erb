@@ -3,6 +3,10 @@
 
   <div class="form-reserve-wrapper">
   <%= form_with model: reservation, class: 'form-reserve', url: form_url, class: 'form-reserve', local: true, data: { turbo: false } do |f| %>
+    <%# --- ここがバケツリレーの重要ポイント --- %>
+    <%= hidden_field_tag :previous_url, @previous_url %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%# ------------------------------------ %>
 
   <div class="reserve-form-info-room-field">
   <div class="reserve-form-img-field"> 
@@ -84,7 +88,7 @@
 
     <div class="form-reserve-btn">
       <%= f.submit submit_btn, class: "reserve-btn reserve-btn-ope" %>
-      <%= link_to '← 戻る', request.referer || rooms_path, class: "reserve-btn reserve-btn-return" %>
+      <%= link_to '戻る', @previous_url || room_path(@room), class: "reserve-btn reserve-btn-return" %>
     </div>
 
   </div>

@@ -36,4 +36,14 @@ class ApplicationController < ActionController::Base
   def store_user_location!
     store_location_for(:user, request.fullpath)
   end
+
+  # 新規・編集画面に入った時に、"本当の前のページ"を保存する
+  def set_previous_url
+    @previous_url = request.referer if request.referer.present? && !request.referer.include?(request.path)
+  end
+
+  # フォーム送信（エラー時）に、隠しフィールドからURLを復元する
+  def fetch_previous_url
+    @previous_url = params[:previous_url]
+  end
 end
