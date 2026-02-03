@@ -25,9 +25,9 @@
         </div>
 
         <div class="reserve-show-info-stay">
-          <div class="reserve-show-row"><label class="reserve-show-label">宿泊日数</label><span class="reserve-show-value"><%= @reservation.stay_days %>日</span></div>
-          <div class="reserve-show-row"><label class="reserve-show-label">宿泊人数</label><span class="reserve-show-value"><%= @reservation.guest_count %>人</span></div>
-          <div class="reserve-show-row"><label class="reserve-show-label">宿泊料金</label><span class="reserve-show-value"><%= number_to_currency(@reservation.calculate_total_price) %>円</span></div>
+          <div class="reserve-show-row"><label class="reserve-show-label">宿泊日数</label><span class="reserve-show-value"><%= "#{@reservation.stay_days}日" %></span></div>
+          <div class="reserve-show-row"><label class="reserve-show-label">宿泊人数</label><span class="reserve-show-value"><%= "#{@reservation.guest_count}人" %></span></div>
+          <div class="reserve-show-row"><label class="reserve-show-label">宿泊料金</label><span class="reserve-show-value"><%= "#{number_to_currency(@reservation.calculate_total_price)}" %></span></div>
         </div>
       </div>
     </div>

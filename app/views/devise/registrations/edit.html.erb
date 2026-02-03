@@ -3,6 +3,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 </div>
 <% end %>
+
 <%= render 'shared/header'%>
 <div class="form-container">
   <h2>アカウント編集</h2>
@@ -42,7 +43,7 @@
 
   <div class="edit-account-row">
     <div class= "edit-account-title">
-    <%= f.label :current_password, class: "edit-account-label" %><small>※必須</small>
+    <%= f.label :current_password, class: "edit-account-label" %><small class="edit-account-required">※必須</small>
     </div>
     <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力", class: 'edit-account-value' %>
   </div>

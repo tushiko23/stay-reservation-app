@@ -38,7 +38,7 @@
         <% end %>
         <td class="reserved-room-td"><%= l reservation.check_in_date %></td>
         <td class="reserved-room-td"><%= l reservation.check_out_date %></td>
-        <td class="reserved-room-td"><%= number_to_currency(reservation.calculate_total_price) %>円</td>
+        <td class="reserved-room-td"><%= "#{number_to_currency(reservation.calculate_total_price)}" %></td>
         <td class="reserved-room-td"><%= l reservation.created_at, format: :long %></td>
         <td class="reserved-room-td"><%= link_to '予約詳細', reservation_path(reservation.id), class: 'reserved-room-td-name' %></td>
         <td class="reserved-room-td">
