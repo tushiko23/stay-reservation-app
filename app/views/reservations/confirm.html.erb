@@ -1,22 +1,31 @@
 <%= render 'shared/header'%>
 
-<h2>予約内容の確認</h2>
+<div class="reserved-confirm-container">
 
-<p>チェックイン: <%= @reservation.check_in_date %></p>
-<p>チェックアウト: <%= @reservation.check_out_date %></p>
-<p>人数: <%= @reservation.guest_count %></p>
-<p>宿泊日数: <%= @reservation.stay_days %></p>
-<p>合計金額: <%= @reservation.calculate_total_price %></p>
-<%= form_with model: @reservation,
-              url: room_reservations_path(@room),
-              method: :post,
-              local: true,
-              data: { turbo: false } do |f| %>
-  <%= f.hidden_field :check_in_date %>
-  <%= f.hidden_field :check_out_date %>
-  <%= f.hidden_field :guest_count %>
+  <h2>予約内容の確認</h2>
 
-  <%= f.submit "確定して予約する" %>
-<% end %>
-  <%= link_to "キャンセル", :back %>
+  <div class="reserved-confirm-wrapper">
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">チェックイン:</label><span class="reserve-confirm-value"><%= @reservation.check_in_date %></span></div>
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">チェックアウト:</label><span class="reserve-confirm-value"><%= @reservation.check_out_date %></span></div>
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">人数:</label><span class="reserve-confirm-value"><%= "#{@reservation.guest_count}人" %></span></div>
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">宿泊日数:</label><span class="reserve-confirm-value"><%= "#{@reservation.stay_days}泊" %></span></div>
+    <div class="reserve-confirm-row reserve-confirm-label-sum"><label class="reserve-confirm-label">合計金額:</label><span class="reserve-confirm-value reserve-confirm-value-sum"><%= "#{@reservation.calculate_total_price}円" %></span></div>
+
+    <p class="reserve-confirm-message">上記内容で正しければ「確定」ボタンを押してください。</p>
+    <div class="reserve-confirm-btn">
+      <%= form_with model: @reservation, url: room_reservations_path(@room), method: :post, local: true, data: { turbo: false } do |f| %>
+        <%= f.hidden_field :check_in_date %>
+        <%= f.hidden_field :check_out_date %>
+        <%= f.hidden_field :guest_count %>
+
+        <%= f.submit "確定して予約する", class: 'confirm-btn confirm-btn-ope' %>
+      <% end %>
+
+      <%= link_to "キャンセル", request.referer || rooms_path, class: "confirm-btn confirm-btn-return" %>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
 <%= render 'shared/footer'%>
