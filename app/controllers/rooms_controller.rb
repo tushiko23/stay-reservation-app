@@ -4,6 +4,8 @@ class RoomsController < ApplicationController
   before_action :correct_user, only: [ :edit, :update, :destroy ]
   before_action :set_q, only: [ :index, :show ]
   before_action :set_search_form_room_area_keyword, only: [ :index, :show ]
+  before_action :set_previous_url, only: [ :new, :edit ]
+  before_action :fetch_previous_url, only: [ :create, :update ]
   def index
     @rooms_count = @rooms.count
   end
@@ -31,10 +33,10 @@ class RoomsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+
     if @room.update(room_params)
       redirect_to room_path(@room), notice: "施設先を編集しました"
     else
@@ -67,6 +69,16 @@ private
     return if @room.user == current_user
     flash[:alert] = "その操作はルームを作成したユーザのみができます"
     redirect_to room_path(@room)
+  end
+
+  # 新規・編集画面に入った時に、"本当の前のページ"を保存する
+  def set_previous_url
+    @previous_url = request.referer if request.referer.present? && !request.referer.include?(request.path)
+  end
+
+  # フォーム送信（エラー時）に、隠しフィールドからURLを復元する
+  def fetch_previous_url
+    @previous_url = params[:previous_url]
   end
 
   def room_params

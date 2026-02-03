@@ -2,6 +2,11 @@
   <h2><%= title %></h2>
   <div class="form-room-wrapper">
     <%= form_with model: @room, local: true do |f| %>
+
+    <%# コントローラから渡された @previous_url を隠しフィールドとして保持する %>
+    <%= hidden_field_tag :previous_url, @previous_url %>
+    <%# --------------------------- %>
+
     <div class="form-room-row form-room-horizontal">
       <div class="form-room-meta">
         <div class="form-room-label">
@@ -95,7 +100,7 @@
   
       <div class="form-room-btn">
         <%= f.submit '保存', class: "room-btn room-btn-ope" %>
-        <%= link_to '← 戻る', request.referer || rooms_path, class: "room-btn room-btn-return" %>
+        <%= link_to '← 戻る', @previous_url || rooms_path, class: "room-btn room-btn-return" %>
       </div>
     </div>  
     <% end %>
