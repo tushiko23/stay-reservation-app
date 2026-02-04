@@ -36,6 +36,11 @@
   background-color: $form-btn-blue;
   color: $form-btn-white;
   font-weight: bold;
+
+  &:hover {
+    background-color: $form-btn-orange;
+    border: none;
+  }
 }
 
 .search-result-field {
