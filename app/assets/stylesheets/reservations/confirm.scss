@@ -5,9 +5,7 @@
   margin: $base-margin;
 
   h2 {
-    font-size: 2rem;
-    border-bottom: solid 0.25rem orange;
-    width: fit-content;
+    @include primary-screen-title;
     margin: 0 auto 32px;
   }
 }
@@ -15,10 +13,10 @@
 .reserved-confirm-wrapper {
   width: 100%;
   padding: 2rem;
-  background: #FFF7ED;
-  border: 2px solid #f2a23a;
+  background: $primary-base-background-color;
+  border: $primary-base-border;
   border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: $room-form-base-box-shadow;
 
   display: flex;
   flex-direction: column;
@@ -30,7 +28,6 @@
   justify-content: space-between;
   font-size: 1.25rem;
   font-weight: bold;
-
   width: 80%;
   margin: 0 auto;
 }
@@ -46,7 +43,7 @@
 }
 .reserve-confirm-value-sum {
   font-size: 2rem;
-  color: #F0643A;
+  color: $form-btn-orange;
   background-color: #FFE8CC;
   padding: 4px 8px;
   border-radius: 10px;
@@ -72,8 +69,8 @@
   border-radius: 12px;
 
   &-ope {
-    background-color: #F0643A;
-    color: #fff;
+    background-color:  $form-btn-orange;
+    color: $form-btn-white;
     font-weight: bold;
     border: none;
   }
@@ -82,8 +79,8 @@
     text-decoration: none;
     transition: 0.3s;
     border: 2px solid #64747b;
-    background-color: #FFF;
-    color: #64748b;
+    background-color: $form-btn-white;
+    color: $form-btn-blue;
     font-weight: bold;
   }
 }
