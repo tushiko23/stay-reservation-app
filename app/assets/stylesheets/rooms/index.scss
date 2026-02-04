@@ -47,7 +47,7 @@
 }
 
 .room-index-info-field {
-  color: #767E86;
+  color: $room-grid-color;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -63,52 +63,13 @@
   }
 
   .room-address-value {
-    color: #616161;
     font-size: 14px;
-    background-color:  #FFE8CC;
-    padding: 4px 8px;
-    border-radius: 10px;
-    width: fit-content;
-  }
-
-}
-.search-form-value {
-  width: 15rem;
-  height: 40px;
-  padding: .5rem;
-  box-sizing: border-box;
-  resize: none;
-  border: 1px solid #64748b;
-  border-radius: 4px;
-}
-
-.search-form-btn {
-  width: 6.25rem;
-  height: 40px;
-  padding: 8px 12px;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: 0.3s;
-  background-color: #64748b;
-  color: #fff;
-  font-weight: bold;
-}
-
-.search-result-field {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  font-size: 1.25rem;
-  padding: 16px 0;
-  gap: 20px;
-
-  b {
-    font-size: 1.5rem;
+    @include show-info-value-layout;
   }
 }
 
 .room-fee_per_day-value {
-  color: #F0643A;
+  color: $form-btn-orange;
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -129,12 +90,12 @@
 }
 
 .room-show-btn {
-  background-color: #F0643A;
+  background-color: $form-btn-orange;
   padding: 8px 16px;
   border-radius: 4px;
 
   a {
-    color: #FFF;
+    color: $form-btn-white;
     font-weight: bold;
   }
 }
