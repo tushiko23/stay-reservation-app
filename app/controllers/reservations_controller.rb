@@ -1,9 +1,9 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reservation, only: [ :show, :edit, :update, :destroy ]
-  before_action :set_room_reservation, only: [ :new, :confirm, :create ]
-  before_action :set_previous_url, only: [ :index ]
-  before_action :fetch_previous_url, only: [ :new, :confirm, :create ]
+  before_action :set_room_reservation, only: [ :new, :confirm, :create, :edit, :update ]
+  before_action :set_previous_url, only: [ :new, :index, :edit ]
+  before_action :fetch_previous_url, only: [ :new, :confirm, :create, :update ]
   def index
     @reservations = current_user.reservations
   end
@@ -85,7 +85,8 @@ class ReservationsController < ApplicationController
   end
 
   def set_room_reservation
-    @room = Room.find(params[:room_id])
+    room_id = params[:room_id] || @reservation&.room_id || params.dig(:reservation, :room_id)
+    @room = Room.find(room_id) if room_id
   end
 
   def reservation_params

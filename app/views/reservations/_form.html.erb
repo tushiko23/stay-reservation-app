@@ -18,11 +18,11 @@
   </div>
 
   <div class="reserve-form-room-field">
-      <h3><%= @reservation.room.name %></h3>
-      <span class="reserve-address-value"><%= @reservation.room.address %></span>
-      <p class="reserve-introduction-value"><%= @reservation.room.introduction%></p>
+      <h3><%= reservation.room.name %></h3>
+      <span class="reserve-address-value"><%= reservation.room.address %></span>
+      <p class="reserve-introduction-value"><%= reservation.room.introduction%></p>
     
-      <p class="reserve-fee_per_day-value"><%= number_to_currency(@reservation.room.fee_per_day) %>円~</p>
+      <p class="reserve-fee_per_day-value"><%= number_to_currency(reservation.room.fee_per_day) %>円~</p>
   </div>
   </div>
 
