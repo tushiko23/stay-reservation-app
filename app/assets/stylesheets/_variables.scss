@@ -22,8 +22,8 @@ $color-search-hover: #e67e22;
 /* フォーム関連 */
 /* フォームのお部屋関連 */
 
-$room-form-base-border-radius: 12px;
-$room-form-base-box-shadow: 0px 8px 20px rgba(0,0,0,.08);
+$form-base-border-radius: 12px;
+$form-base-box-shadow: 0px 8px 20px rgba(0,0,0,.08);
 
 $form-base-width: 800px;
 $form-margin: 0 auto 32px;
@@ -50,3 +50,6 @@ $table-header-background-color: #FFF4E6;
 
 /* お部屋のgrid一覧画面 */
 $room-grid-color: #767E86;
+
+/* アカウント設定画面 */
+$tabs-header-checked-color: #f2a23a;

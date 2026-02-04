@@ -1,6 +1,5 @@
 @import 'variables';
 
-
 /* ページ全体 */
 @mixin primary-screen-title {
   font-size: $title-base-size;
@@ -178,7 +177,7 @@
   background: $primary-base-background-color;
   border: $primary-base-border;
   border-radius: 12px;
-  box-shadow: $room-form-base-box-shadow;
+  box-shadow: $form-base-box-shadow;
 
   h2 {
     font-size: 28px;
@@ -282,4 +281,12 @@
 @mixin dropdown-menu-hover {
   display: block;
   justify-content: center;
+}
+
+/* アカウント関連　*/
+/* アカウント設定画面 */
+
+@mixin tabs-menu-tag {
+  background: $form-btn-white;
+  border: $primary-base-border;
 }

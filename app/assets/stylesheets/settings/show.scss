@@ -1,7 +1,8 @@
+@import 'variables';
+
 .tabs-container {
   margin: 0 auto 2rem;
   max-width: $form-base-width;
-
 
   h2 {
     @include primary-screen-title;
@@ -15,14 +16,13 @@
   gap: 0 10px;
 
   .tabs-menu-label {
+    @include tabs-menu-tag;
     flex: 1 1;
     order: -1;
     min-width: 70px;
     padding: 1em 1em;
     border-radius:  0 0 12px 12px;
-    background-color: #fff;
     color: #333;
-    border: 2px solid #f2a23a;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
@@ -38,14 +38,12 @@
   }
 
   .tabs-account {
+    @include tabs-menu-tag;
     display: none;
     width: 100%;
     padding: 1.5rem;
-
-    background: #fff;
-    border: 2px solid #f2a23a;
-    border-radius: 12px;
-    box-shadow: 0px 8px 20px rgba(0,0,0,.08);
+    border-radius: $form-base-border-radius;
+    box-shadow: $form-base-box-shadow;
 
     p {
       font-size: 1rem;
@@ -54,9 +52,9 @@
   }
 
   label:has(:checked) {
-    background-color: #f2a23a; 
-    color: #fff;
-    border-color: #f2a23a;
+    background-color: $tabs-header-checked-color; 
+    color: $form-btn-white;
+    border-color: $primary-base-border;
     border-bottom: none;
     margin-bottom: -2px;
 
@@ -98,24 +96,23 @@
   margin: 0 10px;
 
   &-ope {
-    color: #fff;
-    background-color: #64748b;
+    color: $form-btn-white;
+    background-color: $form-btn-blue;
 
     &:hover {
-      background-color: #475569;
+      background-color: $form-btn-blue-hover;
     }
   }
 
   &-return {
-    color: #64748b;
-    border: 2px solid #64748b;
+    color: $form-btn-blue;
+    border: 2px solid $form-btn-blue;
 
     &:hover {
-      background-color: #475569;
-      color: #fff;
+      background-color: $form-btn-blue-hover;
+      color: $form-btn-white;
     }
   }
-
 }
 
 .tabs-account-btn {
