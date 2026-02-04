@@ -290,3 +290,60 @@
   background: $form-btn-white;
   border: $primary-base-border;
 }
+
+/* アカウント・パスワード設定画面 */
+@mixin account_base_width {
+  max-width: $form-base-width;
+  margin: 0 auto 2rem; 
+}
+
+@mixin authenticate_edit_row {
+  display: flex;
+  align-items: center;
+  margin: 1.25rem auto;
+}
+
+@mixin authenticate_edit_value {
+  flex: 0 0  50%;
+  padding: .5rem;
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid $form-btn-blue;
+  border-radius: 4px;
+}
+
+@mixin profile_icon_return_btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+@mixin authenticate_btn_layout {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+@mixin authenticate_edit_ope_btn {
+  color: $form-btn-white;
+  background-color: $form-btn-blue;
+
+  &:hover {
+    background-color: $form-btn-blue-hover;
+  }
+}
+
+@mixin authenticate_edit_return_btn {
+  color: $form-btn-blue;
+  border: 2px solid $form-btn-blue;
+
+  &:hover {
+    background-color: $form-btn-blue-hover;
+    color: $form-btn-white;
+  }
+}
