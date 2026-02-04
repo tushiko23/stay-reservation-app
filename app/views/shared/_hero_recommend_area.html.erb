@@ -1,25 +1,25 @@
   <div class="recommend-areas">
     <h3>おすすめのエリア</h3>
     <div class="area-grid">
-      <%= link_to rooms_path(q: { address_cont: "東京" }), class: "area-item" do %>
+      <%= link_to rooms_path(q: { address_cont: "東京" }), class: "area-item area-item-tokyo" do %>
         <div class="area-name">
           <p>東京</p>
           <p>Tokyo</p>
         </div>
       <% end %>  
-      <%= link_to rooms_path(q: { address_cont: "大阪" }), class: "area-item" do %>
+      <%= link_to rooms_path(q: { address_cont: "大阪" }), class: "area-item area-item-osaka" do %>
         <div class="area-name">
           <p>大阪</p>
           <p>Osaka</p>
         </div>
       <% end %>
-      <%= link_to rooms_path(q: { address_cont: "京都" }), class: "area-item" do %>
+      <%= link_to rooms_path(q: { address_cont: "京都" }), class: "area-item area-item-kyoto" do %>
         <div class="area-name">
           <p>京都</p>
           <p>Kyoto</p>
         </div>
       <% end %>
-      <%= link_to rooms_path(q: { address_cont: "札幌" }), class: "area-item" do %>
+      <%= link_to rooms_path(q: { address_cont: "札幌" }), class: "area-item area-item-sapporo" do %>
         <div class="area-name">
           <p>札幌</p>
           <p>Sapporo</p>

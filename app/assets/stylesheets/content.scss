@@ -74,10 +74,34 @@
   padding: 1.5rem;
 }
 .area-item {
-  background-image: url('travel.jpeg');
   border-radius: 1rem;
   width: auto;
   height: 350px;
+  background-size: cover;
+  transition: transform 0.3s ease;
+  position: relative;
+
+  &-tokyo {
+    background-image: url('recommend_area/tokyo.jpg');
+  }
+
+  &-osaka {
+    background-image: url('recommend_area/osaka.jpg');
+  }
+
+  &-kyoto {
+    background-image: url('recommend_area/kyoto.jpg');
+  }
+
+  &-sapporo {
+    background-image: url('recommend_area/sapporo.jpg');
+  }
+
+  &:hover {
+  transform: scale(1.1); /* 1.1倍に拡大 */
+  z-index: 10; /* 他のアイテムより上へ表示 */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* オプション：影をつける */
+  }
 
   .area-name {
     margin-top: 250px;
