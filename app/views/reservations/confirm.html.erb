@@ -23,7 +23,7 @@
         <%= f.hidden_field :check_out_date %>
         <%= f.hidden_field :guest_count %>
 
-        <div class="form-reserve-btn">
+        <div class="reserve-confirm-btn">
         <%= f.submit "確定して予約する", class: 'confirm-btn confirm-btn-ope' %>
         <%= link_to '内容を修正する', new_reservation_path(room_id: @room.id, back: true, previous_url: @previous_url), class: "confirm-btn confirm-btn-return" %>
         </div>
