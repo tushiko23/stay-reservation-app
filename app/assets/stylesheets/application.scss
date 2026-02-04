@@ -1,29 +1,29 @@
 @import 'variables';
 @import 'mixins';
-
 @import 'common';
-@import 'header';
-@import 'content';
-@import 'footer';
+
+@import 'home/header';
+@import 'home/content';
+@import 'home/footer';
+
 @import 'settings/show';
 @import 'profiles/edit';
-@import 'rooms/index';
-@import 'rooms/own';
-
-@import 'rooms/show';
-@import "rooms/form";
 
 @import 'devise/resistrations/account_edit';
 @import 'devise/resistrations/signup';
 @import 'devise/sessions/login';
 @import 'devise/commons/show_error_success_message';
 
+@import 'rooms/index';
+@import 'rooms/search_header';
+@import 'rooms/own';
+@import 'rooms/show';
+@import "rooms/form";
+
 @import 'reservations/form';
 @import 'reservations/show';
 @import 'reservations/index';
 @import 'reservations/confirm';
-
-
 
 html {
   word-spacing: 1px;

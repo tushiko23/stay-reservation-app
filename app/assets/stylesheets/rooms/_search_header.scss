@@ -1,0 +1,17 @@
+@import 'variables';
+
+/* お部屋一覧と詳細の検索ヘッダーのcss */
+
+.search-form-container {
+  background-color: $label-base-background-color;
+
+
+  .search-form-rooms { 
+    display: flex; 
+    height: 80px;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    }
+}

@@ -8,6 +8,12 @@
   width: fit-content;
 }
 
+@mixin grid-expand {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
 /* header footer 共通レイアウト */
 @mixin top-common-header-footer-layouts {
   display: flex;

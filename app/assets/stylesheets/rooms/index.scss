@@ -1,18 +1,4 @@
-/* 検索ヘッダーのcss */
-
-.search-form-container {
-  background-color: $label-base-background-color;
-
-
-  .search-form-rooms { 
-    display: flex; 
-    height: 80px;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    gap: 2rem;
-    }
-}
+@import 'variables';
 
 .room-index-container {
   width: $base-max-width;
@@ -29,7 +15,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
   width: 100%;
-  max-width: 1200px;
+  max-width: $base-max-width;
   margin: 1.5rem auto;
 
 }
@@ -41,14 +27,18 @@
 }
 
 .room-index-card {
-  background: #fff;
+  background-color: $form-btn-white;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    @include grid-expand;
+  }
 
   .room-index-img-field {
-
-
     .room-index-img {
       height: 190px;
       width: 100%;
