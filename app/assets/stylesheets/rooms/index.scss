@@ -1,5 +1,7 @@
+/* 検索ヘッダーのcss */
+
 .search-form-container {
-  background-color: #FFE8CC;
+  background-color: $label-base-background-color;
 
 
   .search-form-rooms { 
@@ -13,14 +15,12 @@
 }
 
 .room-index-container {
-  width: 1200px;
+  width: $base-max-width;
   margin: 30px auto;
 
   h2 {
-    font-size: 2rem;
-    border-bottom: solid 0.25rem orange;
+    @include primary-screen-title;
     border-radius: 4px;
-    width: fit-content;
   }
 }
 
