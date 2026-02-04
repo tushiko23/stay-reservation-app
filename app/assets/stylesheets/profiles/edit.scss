@@ -24,7 +24,7 @@
 }
 
 .form-profile-row {
-  @include authenticate_edit_row;
+  @include authenticate_base_row;
   gap: 1rem;
 }
 
@@ -81,7 +81,7 @@
 
 
 .form-profile-value {
-  @include authenticate_edit_value;
+  @include authenticate_base_value;
 
   &-username {
     height: 2.5rem;

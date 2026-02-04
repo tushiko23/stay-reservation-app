@@ -1,23 +1,17 @@
 .sign_up-account-container {
-  max-width: $form-base-width;
-  margin: 0 auto;
+  @include authenticate-base-width;
 
   h2 {
-    font-size: 2rem;
-    border-bottom: solid 0.25rem orange;
-    width: fit-content;
+    @include primary-screen-title;
     margin: 2rem auto;
   }
 }
 
 .sign_up-account-wrapper {
+  @include  authenticate-base-form;
   width: 80%;
-  margin: 20px auto;
   padding-top: 20px;
-  background: #fff;
-  border: 2px solid #f2a23a;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,.08);
+  
 
   form {
     margin: 0 auto;
@@ -25,9 +19,7 @@
 }
 
 .sign_up-account-row {
-  display: flex;
-  gap: 1rem;
-  margin: 1.25rem auto;
+  @include authenticate_base_row;
   align-items: center;
   justify-content: center;
 
@@ -37,7 +29,7 @@
 
   small{
     font-weight: bold;
-    color: #F97316;
+    color: $form-required-color;
   }
 }
 
@@ -61,13 +53,8 @@
 }
 
 .sign_up-account-value {
-  flex: 0 0 50%;
-  padding: .5rem;
-  box-sizing: border-box;
+  @include authenticate_base_value;
   height: 2.5rem;
-  resize: none;
-  border: 1px solid #64748b;
-  border-radius: 4px;
 }
 
 .form-new-sign_up-btn {

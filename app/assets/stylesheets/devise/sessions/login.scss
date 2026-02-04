@@ -1,23 +1,16 @@
 .login-account-container {
-  max-width: $form-base-width;
-  margin: 0 auto;
+  @include authenticate-base-width;
 
   h2 {
-    font-size: 2rem;
-    border-bottom: solid 0.25rem orange;
-    width: fit-content;
+    @include primary-screen-title;
     padding-bottom: 5px;
     margin: 30px auto;
   }
 }
 
 .login-account-wrapper {
+  @include  authenticate-base-form;
   width: 70%;
-  margin: 20px auto;
-  background: #fff;
-  border: 2px solid #f2a23a;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,.08);
 
   form {
     width: 70%;
@@ -26,9 +19,7 @@
 }
 
 .login-account-row {
-  display: flex;
-  align-items: center;
-  margin: 1.25rem auto;
+  @include authenticate_base_row;
 }
 
 .login-account-row .field_with_errors {
@@ -41,12 +32,7 @@
 }
 
 .login-account-value {
-  flex: 0 0 50%;
-  padding: .5rem;
-  box-sizing: border-box;
-  resize: none;
-  border: 1px solid #64748b;
-  border-radius: 4px;
+  @include authenticate_base_value;
 }
 
 .login-account-btn {
@@ -55,5 +41,3 @@
   margin: 32px auto;
   white-space: nowrap;
 }
-
-

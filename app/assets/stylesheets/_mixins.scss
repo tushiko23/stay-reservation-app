@@ -35,6 +35,34 @@
   font-weight: bold;
 }
 
+/* ログイン・新規登録関連 */
+@mixin authenticate-base-width {
+  max-width: $form-base-width;
+  margin: $base-margin;
+}
+
+@mixin authenticate-base-form {
+  margin: 20px auto;
+  background: $form-btn-white;
+  border: $primary-base-border;
+  border-radius: $form-base-border-radius;
+  box-shadow: $form-base-box-shadow;
+}
+
+@mixin authenticate_base_row {
+  display: flex;
+  align-items: center;
+  margin: 1.25rem auto;
+}
+
+@mixin authenticate_base_value {
+  flex: 0 0  50%;
+  padding: .5rem;
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid $form-btn-blue;
+  border-radius: 4px;
+}
 
 /* フォーム関連 */
 /* 必須ラベル */
@@ -297,21 +325,6 @@
   margin: 0 auto 2rem; 
 }
 
-@mixin authenticate_edit_row {
-  display: flex;
-  align-items: center;
-  margin: 1.25rem auto;
-}
-
-@mixin authenticate_edit_value {
-  flex: 0 0  50%;
-  padding: .5rem;
-  box-sizing: border-box;
-  resize: none;
-  border: 1px solid $form-btn-blue;
-  border-radius: 4px;
-}
-
 @mixin profile_icon_return_btn {
   display: inline-block;
   padding: 10px 24px;
@@ -347,3 +360,5 @@
     color: $form-btn-white;
   }
 }
+
+

@@ -9,7 +9,7 @@
 }
 
 .edit-account-row {
-  @include authenticate_edit_row;
+  @include authenticate_base_row;
   gap: 2.5rem;
   small {
     font-weight: bold;
@@ -36,7 +36,7 @@
 }
 
 .edit-account-value {
-  @include authenticate_edit_value;
+  @include authenticate_base_value;
   height: 2.5rem;
 }
 
