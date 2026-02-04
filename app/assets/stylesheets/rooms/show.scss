@@ -1,109 +1,43 @@
+@import 'variables';
+
 .room-show-container {
-  max-width: 1200px;
-  margin: 20px auto;
+  @include show-whole-position;
 }
 
 .room-show-header {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1200px;
-
+  @include show-header-position;
 
   .room-btn-return {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  color: #475569;
-  border: 1.5px solid #94A3B8;
-  padding: 8px 12px;
-  width: 100px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-align: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: rgba(71, 85, 105, 0.08);
-    color: #334155;
+    @include show-header-btn-return;
   }
-  }
-}
 
   .room-btn-edit {
-    display: inline-block;
-    background-color: #64748B;
-    color: #FFFFFF;
-    padding: 8px 12px;
-    border-radius: 8px;
-    width: 100px;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-
-    &:hover {
-      background-color: #475569;
-    }
-
-    &:active {
-      background-color: #334155;
-      transform: translateY(1px);
-    }
+    @include show-header-btn-edit;
+  }
 }
 
 .room-show-contents-wrapper {
-  display: flex;
-  gap: 32px;
+  @include show-contents-position;
 
-
-  max-width: 1200px;
-  margin: 32px auto;
-  align-items: center;
   .room-show-img-field {
     flex: 2 1 0;
     min-width: 0;
 
     .room-show-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      border-radius: 12px;
+      @include show-img-layout;
     }
   }
 
   .room-show-info-field {
-      flex: 3 1 0;
-      min-width: 0;
+    @include show-info-layout;
+    flex: 3 1 0;
+    gap: 10px;
 
-      padding: 16px;
-      gap: 10px;
-
-      display: flex;
-      flex-direction: column;
-
-      background: #FFF7ED;
-      border: 2px solid #f2a23a;
-      border-radius: 12px;
-      box-shadow: 0px 8px 20px rgba(0,0,0,.08);
-
-      h2 {
-        font-size: 28px;
-      }
-
-      .room-show-address-value {
-      color: #616161;
+    .room-show-address-value {
+      @include show-info-value-layout;
       font-size: 14px;
-      background-color: #FFE8CC;
-      padding: 4px 8px;
-      border-radius: 10px;
-      width: fit-content;
       text-align: center;
-      }
-
+    }
   }
 
   .room-show-footer {
@@ -114,10 +48,17 @@
     .room-fee_per_day-value {
       font-size: 38px;
     }
-
+    
     .room-show-btn {
       width: fit-content;
+
+    .room-reserve-btn {
       padding: 12px 32px;
+    }
+
+    .room-login-btn {
+      padding: 12px 32px;
+    }
     }
   }
 }

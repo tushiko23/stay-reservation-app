@@ -1,105 +1,45 @@
+@import 'variables';
+
 .reserve-show-container {
-  max-width: 1200px;
-  margin: 20px auto;
+  @include show-whole-position;
 
   h2 {
-    font-size: 2rem;
+    @include primary-screen-title;
     text-align: center;
-    border-bottom: solid 0.25rem orange;
-    width: fit-content;
     margin: 0 auto 32px;
   }
 }
 
 .reserve-show-header {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1200px;
-
+  @include show-header-position;
 
   .reserve-btn-return {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  color: #475569;
-  border: 1.5px solid #94A3B8;
-  padding: 8px 12px;
-  width: 100px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-align: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: rgba(71, 85, 105, 0.08);
-    color: #334155;
+    @include show-header-btn-return;
   }
-  }
-}
 
   .reserve-btn-edit {
-    display: inline-block;
-    background-color: #64748B;
-    color: #FFFFFF;
-    padding: 8px 12px;
-    border-radius: 8px;
-    width: 100px;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-
-    &:hover {
-      background-color: #475569;
-    }
-
-    &:active {
-      background-color: #334155;
-      transform: translateY(1px);
-    }
+    @include show-header-btn-edit;
+  }
 }
 
 .reserve-show-contents-wrapper {
-  display: flex;
-  gap: 32px;
+  @include show-contents-position;
 
-
-  max-width: 1200px;
-  margin: 32px auto;
-  align-items: center;
   .reserve-show-img-field {
     flex: 1 1 0;
     min-width: 0;
 
     .reserve-show-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      border-radius: 12px;
+      @include show-img-layout;
     }
   }
 
   .reserve-show-info-field {
-      flex: 1 1 0;
-      min-width: 0;
-
-      padding: 16px;
-      gap: 16px;
-
-      display: flex;
-      flex-direction: column;
-
-      background: #FFF7ED;
-      border: 2px solid #f2a23a;
-      border-radius: 12px;
-      box-shadow: 0px 8px 20px rgba(0,0,0,.08);
+    @include show-info-layout;
+    flex: 1 1 0;
+    gap: 16px;
 
       h2 {
-        font-size: 28px;
         margin: auto;
       }
 
@@ -125,13 +65,10 @@
 }
 
 .reserve-show-value {
+  @include show-info-value-layout;
   display: inline-block;
   font-size: 1rem;
-  color: #C56A00;
-  background-color: #FFE8C7;
-  padding: 4px 8px;
-  border-radius: 10px;
-  width: fit-content;
+
 }
 
 .reserve-show-info-date {

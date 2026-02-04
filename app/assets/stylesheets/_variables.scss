@@ -19,7 +19,8 @@ $color-primary-flame: #2b2ebf;
 $color-search-orange: #f39c12;
 $color-search-hover: #e67e22;
 
-/* お部屋関連 */
+/* フォーム関連 */
+/* フォームのお部屋関連 */
 $room-form-base-width: 800px;
 $room-form-base-border-radius: 12px;
 $room-form-base-box-shadow: 0px 8px 20px rgba(0,0,0,.08);
@@ -37,4 +38,5 @@ $form-btn-blue-hover: #475569;
 $form-btn-black-hover: rgba(71, 85, 105, 0.08);
 
 $label-base-background-color: #FFE8CC;
-$label-base-font-color: #616161;
+$form-value-border-color: #94a3b8;
+

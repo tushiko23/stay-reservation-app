@@ -28,13 +28,13 @@
         <div class="room-show-footer">
           <p class="room-fee_per_day-value" ><%= number_to_currency(@room.fee_per_day) %></p>
 
-          <p class="room-show-btn">
+          <div class="room-show-btn">
             <% if user_signed_in? %>
-              <%= link_to "予約する", new_room_reservation_path(@room) %>
+              <%= link_to "予約する", new_room_reservation_path(@room), class: "room-reserve-btn"%>
             <% else %>
-              <%= link_to "ログインまたは新規登録", new_user_session_path %>
+              <%= link_to "ログインまたは新規登録", new_user_session_path, class: "room-login-btn" %>
             <% end %>
-          </p>
+          </div>
         </div>
       </div>
   </div>

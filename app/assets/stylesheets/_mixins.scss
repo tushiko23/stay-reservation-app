@@ -1,5 +1,13 @@
 @import 'variables';
 
+
+/* ページ全体 */
+@mixin primary-screen-title {
+  font-size: $title-base-size;
+  border-bottom: solid 0.25rem orange;
+  width: fit-content;
+}
+
 /* header footer 共通レイアウト */
 @mixin top-common-header-footer-layouts {
   display: flex;
@@ -22,12 +30,6 @@
   font-weight: bold;
 }
 
-/* ページ全体 */
-@mixin primary-screen-title {
-  font-size: $title-base-size;
-  border-bottom: solid 0.25rem orange;
-  width: fit-content;
-}
 
 /* フォーム関連 */
 /* 必須ラベル */
@@ -86,5 +88,104 @@
     background-color: $form-btn-black-hover;
   }
 }
+
+/* 詳細画面 */
+@mixin show-whole-position {
+  max-width: $base-max-width;
+  margin: 20px auto;
+}
+
+@mixin show-header-position {
+  display: flex;
+  justify-content: space-between;
+  max-width: $base-max-width;
+}
+
+@mixin show-header-btn-return {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: $form-btn-blue-hover;
+  border: 1.5px solid $form-value-border-color;
+  padding: 8px 12px;
+  width: 100px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(71, 85, 105, 0.08);
+    color: #334155;
+  }
+}
+
+@mixin show-header-btn-edit {
+  display: inline-block;
+  background-color: $form-btn-blue;
+  color: $form-btn-white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 100px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: $form-btn-blue-hover;
+  }
+
+  &:active {
+    background-color: #334155;
+    transform: translateY(1px);
+  }
+}
+
+@mixin show-contents-position {
+  display: flex;
+  gap: 32px;
+
+
+  max-width: $base-max-width;
+  margin: 32px auto;
+  align-items: center;
+}
+
+@mixin show-img-layout {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+@mixin show-info-layout {
+  min-width: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+  background: $primary-base-background-color;
+  border: $primary-base-border;
+  border-radius: 12px;
+  box-shadow: $room-form-base-box-shadow;
+
+  h2 {
+    font-size: 28px;
+  }
+}
+
+@mixin show-info-value-layout {
+  color: $text-base-color;
+  background-color: #FFE8C7;
+  padding: 4px 8px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
 
 
