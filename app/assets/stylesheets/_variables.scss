@@ -2,7 +2,7 @@
 $text-base-color: #616161;
 $title-base-size: 2rem;
 $primary-base-border: 2px solid #f2a23a;
-$primary-base-background-color: #fef2f2;
+$primary-base-background-color: #FFF7ED;
 
 $base-cursor: pointer;
 $dropdown-base-hover-color: #007bff;
@@ -18,3 +18,23 @@ $top-background-color: aliceblue;
 $color-primary-flame: #2b2ebf;
 $color-search-orange: #f39c12;
 $color-search-hover: #e67e22;
+
+/* お部屋関連 */
+$room-form-base-width: 800px;
+$room-form-base-border-radius: 12px;
+$room-form-base-box-shadow: 0px 8px 20px rgba(0,0,0,.08);
+
+
+$form-margin: 0 auto 32px;
+$form-required-color: #F97316;
+$form-required-background-color: #FFEDD5;
+$form-error-massage-color: #EA580C;
+
+$form-btn-blue: #64748b;
+$form-btn-white: #FFF;
+$form-btn-orange: #F0643A;
+$form-btn-blue-hover: #475569;
+$form-btn-black-hover: rgba(71, 85, 105, 0.08);
+
+$label-base-background-color: #FFE8CC;
+$label-base-font-color: #616161;

@@ -1,14 +1,12 @@
 @import 'variables'; 
 
 .form-room-container {
-  width: 800px;
-  margin: 0 auto;
+  width: $room-form-base-width;
+  margin: $base-margin;
 
   h2 {
-    font-size: 2rem;
-    border-bottom: solid 0.25rem orange;
-    width: fit-content;
-    margin: 0 auto 32px;
+    @include primary-screen-title;
+    margin: $form-margin;
   }
 }
 
@@ -16,10 +14,10 @@
   width: 100%;
   padding: 1rem 2rem;
 
-  background: #fff;
-  border: 2px solid #f2a23a;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,.08);
+  background: $primary-base-background-color;
+  border: $primary-base-border;
+  border-radius: $room-form-base-border-radius; 
+  box-shadow: $room-form-base-box-shadow;
 }
 
 
@@ -39,20 +37,12 @@
   font-size: 1rem;
 
   small {
-    margin-left: 6px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    color:  #F97316;
-    background-color: #FFEDD5;
-    padding: 6px;
-    border-radius: 6px;
+    @include form-required-label;
   }
 }
 
 .form-room-error {
-  margin-top: 4px;
-  color:  #EA580C;
-  font-size: 0.8rem;
+  @include form-error-massage;
 }
 
 .form-room-input {
@@ -91,16 +81,15 @@
 .room-upload-btn {
   padding: 16px;
   border-radius: 4px;
-  background: #64748b;
-  color: #FFF;
+  background: $form-btn-blue;
+  color: $form-btn-white;
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
   margin-right: .5rem;
 
   &:hover {
-    background-color: #64748b;
-    color: #fff;
+    background-color: $form-btn-blue-hover;
   }
 }
 
@@ -117,40 +106,21 @@
 }
 
 .form-room-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
+  @include form-btn-position;
 
+  flex-direction: column;
   margin: 24px 0 16px;
 
   .room-btn {
     width: 450px;
-    padding: 16px 20px;
-    font-size: 20px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 12px;
+    @include form-base-btn-layout;
 
     &-ope {
-    background-color: #F0643A;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
+      @include form-base-btn-ope;
     }
 
     &-return {
-    text-decoration: none;
-    transition: 0.3s;
-    border: 2px solid #64747b;
-    background-color: #FFF;
-    color: #64748b;
-    font-weight: bold;
+      @include form-base-btn-return;
     }
   }
-
 }

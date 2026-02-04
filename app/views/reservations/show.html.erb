@@ -4,7 +4,7 @@
   <h2>予約の詳細</h2>
 
     <div class="reserve-show-header">
-      <%= link_to "←戻る", :back, class: "reserve-btn-return" %>
+      <%= link_to "←戻る", request.referer || rooms_path, class: "reserve-btn-return" %>
       <%= link_to "編集する", edit_reservation_path(), class: "reserve-btn-edit" %>
     </div>
 

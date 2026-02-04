@@ -1,14 +1,12 @@
 @import 'variables'; 
 
 .form-reserve-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: $base-max-width;
+  margin: $base-margin;
   
   h2 {
-    font-size: 2rem;
-    border-bottom: solid 0.25rem orange;
-    width: fit-content;
-    margin: 0 auto 32px;
+    @include primary-screen-title;
+    margin: $form-margin;
   }
 }
 
@@ -43,8 +41,8 @@
     height: auto;
 
     text-align: left;
-    background: #FFF7ED;
-    border: 2px solid #f2a23a;
+    background: $primary-base-background-color;
+    border: $primary-base-border;
     border-radius: 12px;
     overflow: hidden;
     padding: 8px 16px; 
@@ -71,9 +69,9 @@
 }
 
   .reserve-address-value {
-    color: #616161;
+    color: $label-base-font-color;
     font-size: 14px;
-    background-color:  #FFE8CC;
+    background-color:  $label-base-background-color;
     padding: 4px 8px;
     border-radius: 10px;
     width: fit-content;
@@ -83,7 +81,7 @@
   }
 
   .reserve-fee_per_day-value {
-    color: #F0643A;
+    color: $form-btn-orange;
     font-weight: bold;
     font-size: 1.5rem;
   }
@@ -98,8 +96,8 @@
   flex-direction: column;
   gap: 10px;
 
-  background: #FFF7ED;
-  border: 2px solid #f2a23a;
+  background: $primary-base-background-color;
+  border: $primary-base-border;
   border-radius: 12px;
   overflow: hidden;
   padding: 16px;
@@ -118,21 +116,13 @@
 
 
   small {
-    margin-left: 6px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    color:  #F97316;
-    background-color: #FFEDD5;
-    padding: 6px;
-    border-radius: 6px;
+    @include form-required-label;
   }
 }
 
 .form-reserve-error {
-  margin-top: 4px;
+  @include form-error-massage;
   margin-left: 8px;
-  color: #EA580C;
-  font-size: 0.8rem;
 }
 
 .field_with_errors {
@@ -157,37 +147,19 @@
 }
 
 .form-reserve-btn {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-
+  @include form-btn-position;
   margin: 24px auto;
 
 .reserve-btn {
     width: 12.5rem;
-    padding: 16px 20px;
-    font-size: 20px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 12px;
+    @include form-base-btn-layout;
 
     &-ope {
-    background-color: #F0643A;
-    color: #fff;
-    font-weight: bold;
-    border: none;
+      @include form-base-btn-ope;
     }
 
     &-return {
-    text-decoration: none;
-    transition: 0.3s;
-    border: 2px solid #64747b;
-    background-color: #FFF;
-    color: #64748b;
-    font-weight: bold;
+      @include form-base-btn-return;
     }
   }
 }

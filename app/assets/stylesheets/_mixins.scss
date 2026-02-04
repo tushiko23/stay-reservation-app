@@ -22,9 +22,69 @@
   font-weight: bold;
 }
 
-/* */
+/* ページ全体 */
 @mixin primary-screen-title {
   font-size: $title-base-size;
   border-bottom: solid 0.25rem orange;
   width: fit-content;
 }
+
+/* フォーム関連 */
+/* 必須ラベル */
+@mixin form-required-label {
+  margin-left: 6px;
+  font-size: 0.75rem;
+  color:  $form-required-color;
+  background-color: $form-required-background-color;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+@mixin form-error-massage {
+  margin-top: 4px;
+  color:  $form-error-massage-color;
+  font-size: 0.8rem;
+}
+
+@mixin form-btn-position {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@mixin form-base-btn-layout {
+  padding: 16px 20px;
+  font-size: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 12px;
+}
+
+@mixin form-base-btn-ope {
+  background-color: $form-btn-orange;
+  color: $form-btn-white;
+  font-weight: bold;
+  border: none;
+
+  &:hover {
+    background-color: $color-search-hover;
+  }
+}
+
+@mixin form-base-btn-return {
+  text-decoration: none;
+  transition: 0.3s;
+  border: 2px solid #64747b;
+  background-color: $form-btn-white;
+  color: $form-btn-blue;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $form-btn-black-hover;
+  }
+}
+
+
