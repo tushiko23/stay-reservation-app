@@ -1,6 +1,20 @@
-$primary-color: #8AC542;
-$base-bg-color: rgb(241, 245, 247);
-
-$font-lg: 22px;
-
+/* 全体の設定 */
 $text-base-color: #616161;
+$title-base-size: 2rem;
+$primary-base-border: 2px solid #f2a23a;
+$primary-base-background-color: #fef2f2;
+
+$base-cursor: pointer;
+$dropdown-base-hover-color: #007bff;
+
+$base-max-width: 1200px;
+$base-margin: 0 auto;
+/* トップページ */
+$top-background-color: aliceblue;
+
+/* ヘッダー */
+
+/* 検索欄 */
+$color-primary-flame: #2b2ebf;
+$color-search-orange: #f39c12;
+$color-search-hover: #e67e22;

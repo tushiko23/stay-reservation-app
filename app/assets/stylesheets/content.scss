@@ -28,7 +28,7 @@
   height: 50px;
   margin: 30px auto;
   border-radius: 8px;
-  border: solid 2px blue;
+  border: solid 2px $color-primary-flame;
   }
 
   &-search-btn {
@@ -36,12 +36,17 @@
   width: 80%;
   height: 50px;
   margin: auto;
-  background-color: orange;
+  background-color: $color-search-orange;
   border-radius: 8px;
   border: none;
   color: white;
   font-weight: bold;
   font-size: 1rem;
+
+  &:hover {
+    background-color: $color-search-hover;
+    opacity: .8;
+  }
   }
 }
 

@@ -9,12 +9,8 @@
   z-index: 100;
 
   &-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include top-common-header-footer-layouts;
     padding: 15px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
 
     .site-logo {
       height: 40px;
@@ -25,25 +21,20 @@
 
 .header-nav {
   ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    @include top-nav-layouts;
 
     li {
       margin-left: 1rem;
     }
 
     a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
+      @include top-layouts-link-menu;
       display: flex;
       align-items: center;
       gap: 8px;
 
       &:hover {
-        color: #007bff;
+        color: $dropdown-base-hover-color;
       }
     }
   }
@@ -83,7 +74,7 @@
   margin-top: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   min-width: 160px;
-  background-color: aliceblue;
+  background-color: $top-background-color;
   opacity: 0.9;
   z-index: 10;
 }

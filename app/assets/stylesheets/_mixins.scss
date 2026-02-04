@@ -1,0 +1,23 @@
+@import 'variables';
+
+/* header footer 共通レイアウト */
+@mixin top-common-header-footer-layouts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: $base-max-width;
+  margin: $base-margin
+}
+
+@mixin top-nav-layouts {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin top-layouts-link-menu {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}

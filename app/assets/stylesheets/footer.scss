@@ -1,3 +1,5 @@
+@import 'variables';
+
 .footer-logo-wrapper {
   margin: 0;
 
@@ -18,31 +20,22 @@
 }
 
 .footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include top-common-header-footer-layouts;
   padding: 30px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .footer-nav {
-      display: flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      @include top-nav-layouts;
 
       li {
         margin-left: 20px;
       }
 
       a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
+        @include top-layouts-link-menu;
       }
 
       a:hover {
-        color: #007bff;
+        color: $dropdown-base-hover-color;
       }
     }
