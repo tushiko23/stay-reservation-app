@@ -1,3 +1,5 @@
+@import 'variables';
+
 .hero {
   background-image: url('travel.jpg');
   background-size: cover;
@@ -57,11 +59,9 @@
   height: 550px;
 
   h3 {
-  font-size: 2rem;
+  @include primary-screen-title;
   margin: 20px auto;
   padding-bottom: 10px; 
-  border-bottom: solid 0.25rem orange;
-  width: fit-content;
   }
 }
 
@@ -83,6 +83,7 @@
 
   &-tokyo {
     background-image: url('recommend_area/tokyo.jpg');
+    background-position: center;
   }
 
   &-osaka {
@@ -98,9 +99,9 @@
   }
 
   &:hover {
-  transform: scale(1.1); /* 1.1倍に拡大 */
-  z-index: 10; /* 他のアイテムより上へ表示 */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* オプション：影をつける */
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
 
   .area-name {

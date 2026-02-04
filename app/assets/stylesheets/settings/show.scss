@@ -4,9 +4,7 @@
 
 
   h2 {
-    font-size: 2rem;
-    border-bottom: solid 0.25rem orange;
-    width: fit-content;
+    @include primary-screen-title;
     margin: 2rem auto;
   }
 }

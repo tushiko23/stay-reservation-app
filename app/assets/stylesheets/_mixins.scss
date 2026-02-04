@@ -21,3 +21,10 @@
   color: #333;
   font-weight: bold;
 }
+
+/* */
+@mixin primary-screen-title {
+  font-size: $title-base-size;
+  border-bottom: solid 0.25rem orange;
+  width: fit-content;
+}
