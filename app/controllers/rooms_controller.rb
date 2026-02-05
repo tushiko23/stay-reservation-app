@@ -25,7 +25,6 @@ class RoomsController < ApplicationController
   end
 
   def show
-
   end
 
   def own
@@ -36,7 +35,6 @@ class RoomsController < ApplicationController
   end
 
   def update
-
     if @room.update(room_params)
       redirect_to room_path(@room), notice: "施設先を編集しました"
     else

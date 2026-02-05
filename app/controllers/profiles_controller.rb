@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
     @user.update!(name: name)
   end
 
-  redirect_to settings_path(tab: :profile), notice: 'プロフィールが更新されました'
+  redirect_to settings_path(tab: :profile), notice: "プロフィールが更新されました"
 
   rescue ActiveRecord::RecordInvalid
     @user = current_user
