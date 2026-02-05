@@ -48,6 +48,9 @@ gem "rubocop-rails"
 # 検索機能のライブラリ
 gem "ransack"
 
+# 画像アップロードのバリデーション
+gem "active_storage_validations"
+
 # Railsのメッセージの日本語化
 gem "rails-i18n", "~> 7.0"
 gem "devise-i18n"

@@ -8,6 +8,7 @@ class Room < ApplicationRecord
   validates :introduction, presence: true
   validates :fee_per_day, presence: true
   validates :address, presence: true
+  validates :image, content_type: [ :png, :jpg, :jpeg ]
 
   validates :fee_per_day, numericality: {
     greater_than: 0,
