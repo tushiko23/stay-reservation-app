@@ -1,0 +1,92 @@
+@import 'variables';
+
+/* モーダル背景（画面全体を覆う） */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ×ボタンのスタイル */
+.modal-close-times {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.modal-close-times:hover {
+  color: #333;
+}
+
+/* モーダル本体 */
+.custom-modal-content {
+  position: relative;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 380px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.modal-title {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.modal-preview-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.modal-text-info {
+  text-align: left;
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modal-warning {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.modal-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-close-modal, .btn-confirm-delete {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-close-modal { background: #ccc; color: #fff; }
+.btn-confirm-delete { background: #e74c3c; color: #fff; text-align: center; }

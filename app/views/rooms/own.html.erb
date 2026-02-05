@@ -39,10 +39,11 @@
               <div class="dropdown-menu-own-content">
               <ul>
                 <li><%= link_to '編集', edit_room_path(room.id) %></li>
-                <li><%= link_to '施設を削除', room_path(room.id), data: { turbo_method: :delete, turbo_confirm: "施設を削除しますか？\n 施設画像: \n 施設名: #{room.name}\n 施設料金: #{room.fee_per_day}円" } %></li>
+                <li><a href="javascript:void(0);" onclick="openModal('modal-room-<%= room.id %>')">施設を削除</a></li>
               </ul>
               </div>
               </div>
+              <%= render 'shared/modal_delete_massages', object: room, title: '施設', delete_path: room_path(room.id)%>
             </td>
         </tr>
       <% end %>
@@ -54,3 +55,5 @@
 <%= render 'shared/hero_recommend_area'%>
 
 <%= render 'shared/footer'%>
+
+

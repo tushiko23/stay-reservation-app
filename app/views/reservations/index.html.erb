@@ -47,10 +47,11 @@
             <div class="dropdown-menu-own-content">
               <ul>
                 <li><%= link_to '編集', edit_reservation_path(reservation.id) %></li>
-                <li><%= link_to '予約を削除', reservation_path(reservation.id), data: { turbo_method: :delete, turbo_confirm: "予約を削除しますか？\n 予約画像: \n 予約名: #{reservation.room.name}\n 宿泊料金: #{reservation.calculate_total_price}円" } %></li>
+                <li><a href="javascript:void(0);" onclick="openModal('modal-reservation-<%= reservation.id %>')">予約を削除</a></li>
               </ul>
             </div>
           </div>
+          <%= render 'shared/modal_delete_massages', object: reservation, title: '予約', delete_path: reservation_path(reservation.id)%>
         </td>
       </tr>
       <% end %>
