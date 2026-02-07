@@ -1,0 +1,41 @@
+<%= render 'shared/header' %>
+
+<%= render 'shared/search_room_area_keyword_form' %>
+
+<div class="room-index-container">
+  <div class="search-result-field">
+    <p><b><%= @rooms_count %></b>件が見つかりました</p>
+    <h2>施設一覧</h2>
+  </div>
+
+  <div class="room-index-grid">
+  <% @rooms.each do |room|%>
+  <div class="room-index-card">
+    <div class="room-index-img-field">
+      <% if room.image.attached? %>
+        <%= image_tag room.image, alt: '宿泊先の画像', class: "room-index-img" %>
+      <% else %>
+        <%= image_tag 'default-room.png', alt: '宿泊先のデフォルト画像', class: "room-index-img" %>
+      <% end %>
+    </div>
+
+    <div class="room-index-info-field">
+      <h3><%= room.name %></h3>
+      <span class="room-address-value" ><%= room.address%></span>
+      <% if room.introduction.length > 70 %>
+      <p class= "room-introduction-value"><%= room.introduction.slice(0, 70) + "..." %></p>
+      <% else %>
+      <p class= "room-introduction-value"><%= room.introduction %></p>
+      <% end %>
+      <div class="room-footer">
+      <p class= "room-fee_per_day-value" ><%= number_to_currency(room.fee_per_day) %></p>
+      <span class="room-show-btn"><%= link_to "詳細を表示", room_path(room.id) %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>

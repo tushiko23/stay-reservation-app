@@ -1,0 +1,117 @@
+@import 'variables';
+
+.hero {
+  background-image: url('travel.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 650px;
+
+  &-copy {
+    color: white;
+    font-weight: bold;
+    font-size: 64px;
+    text-align: center;
+    padding: 50px;
+  }
+
+  &-search-form {
+    text-align: center;
+    background-color: aliceblue;
+    opacity: 0.9;
+    width: 50%;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+
+  .area-search-input {
+  width: 80%;
+  height: 50px;
+  margin: 30px auto;
+  border-radius: 8px;
+  border: solid 2px $color-primary-flame;
+  }
+
+  &-search-btn {
+  display: block;
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  background-color: $color-search-orange;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: $color-search-hover;
+    opacity: .8;
+  }
+  }
+}
+
+.recommend-areas {
+  max-width: 1100px;
+  margin: 8px auto;
+  align-content: center;
+  height: 550px;
+
+  h3 {
+  @include primary-screen-title;
+  margin: 20px auto;
+  padding-bottom: 10px; 
+  }
+}
+
+.area-grid {
+  max-width: 1100px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  padding: 1.5rem;
+}
+.area-item {
+  border-radius: 1rem;
+  width: auto;
+  height: 350px;
+  background-size: cover;
+  transition: transform 0.3s ease;
+  position: relative;
+
+  &-tokyo {
+    background-image: url('recommend_area/tokyo.jpg');
+    background-position: center;
+  }
+
+  &-osaka {
+    background-image: url('recommend_area/osaka.jpg');
+  }
+
+  &-kyoto {
+    background-image: url('recommend_area/kyoto.jpg');
+  }
+
+  &-sapporo {
+    background-image: url('recommend_area/sapporo.jpg');
+  }
+
+  &:hover {
+    @include grid-expand;
+  }
+
+  .area-name {
+    margin-top: 250px;
+
+    p {
+      vertical-align: middle;
+      font-size: 1.5rem;
+      text-indent: 1em;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+

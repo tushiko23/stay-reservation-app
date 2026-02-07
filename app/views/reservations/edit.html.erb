@@ -1,0 +1,12 @@
+<%= render 'shared/header'%>
+
+<%= render 'form', 
+          title: '予約の編集', 
+          submit_btn: '編集する',
+          reservation: @reservation,
+          form_url: reservation_path(@reservation) %>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>
+

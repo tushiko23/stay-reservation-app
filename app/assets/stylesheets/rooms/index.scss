@@ -1,0 +1,101 @@
+@import 'variables';
+
+.room-index-container {
+  width: $base-max-width;
+  margin: 30px auto;
+
+  h2 {
+    @include primary-screen-title;
+    border-radius: 4px;
+  }
+}
+
+.room-index-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: $base-max-width;
+  margin: 1.5rem auto;
+
+}
+
+@media (max-width: 1024px) {
+  .room-index-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.room-index-card {
+  background-color: $form-btn-white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    @include grid-expand;
+  }
+
+  .room-index-img-field {
+    .room-index-img {
+      height: 190px;
+      width: 100%;
+    }
+  }
+}
+
+.room-index-info-field {
+  color: $room-grid-color;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h3 {
+    font-size: 32px;
+  }
+
+  .room-introduction-value {
+    font-weight: bold;
+    height: 120px;
+  }
+
+  .room-address-value {
+    font-size: 14px;
+    @include show-info-value-layout;
+  }
+}
+
+.room-fee_per_day-value {
+  color: $form-btn-orange;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.room-footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 16px auto;
+}
+
+
+@media (max-width: 1024px) {
+  .room-footer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.room-show-btn {
+  background-color: $form-btn-orange;
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  a {
+    color: $form-btn-white;
+    font-weight: bold;
+  }
+}

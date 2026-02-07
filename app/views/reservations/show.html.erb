@@ -1,0 +1,38 @@
+<%= render 'shared/header'%>
+
+<div class="reserve-show-container">
+  <h2>予約の詳細</h2>
+
+    <div class="reserve-show-header">
+      <%= link_to "←戻る", request.referer || rooms_path, class: "reserve-btn-return" %>
+      <%= link_to "編集する", edit_reservation_path(), class: "reserve-btn-edit" %>
+    </div>
+
+    <div class="reserve-show-contents-wrapper">
+      <div class="reserve-show-img-field">
+        <% if @reservation.room.image.attached? %>
+          <%= image_tag @reservation.room.image, alt: '宿泊先の画像', class: 'reserve-show-img' %>
+        <% else %>
+          <%= image_tag 'default-room.png', alt: '宿泊先のデフォルト画像', class: 'reserve-show-img' %>
+        <% end %>
+      </div>
+
+      <div class="reserve-show-info-field">
+        <h2>施設名: <%= @reservation.room.name %></h2>
+        <div class="reserve-show-info-date">
+          <div class="reserve-show-row" ><label class="reserve-show-label" >チェックイン日</label><span class="reserve-show-value"><%= l @reservation.check_in_date %></span></div>
+          <div class="reserve-show-row" ><label class="reserve-show-label" >チェックアウト日</label><span class="reserve-show-value"><%= l @reservation.check_out_date %></span></div>
+        </div>
+
+        <div class="reserve-show-info-stay">
+          <div class="reserve-show-row"><label class="reserve-show-label">宿泊日数</label><span class="reserve-show-value"><%= "#{@reservation.stay_days}日" %></span></div>
+          <div class="reserve-show-row"><label class="reserve-show-label">宿泊人数</label><span class="reserve-show-value"><%= "#{@reservation.guest_count}人" %></span></div>
+          <div class="reserve-show-row"><label class="reserve-show-label">宿泊料金</label><span class="reserve-show-value"><%= "#{number_to_currency(@reservation.calculate_total_price)}" %></span></div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>

@@ -1,0 +1,48 @@
+  <%= render 'shared/header'%>
+  <div class="tabs-container">
+    <h2>ユーザー情報</h2>
+    <div class="tabs-wrapper">
+      <label class="tabs-menu-label"><input type="radio" name="tab-2" <%= 'checked' if params[:tab].blank? || params[:tab] == 'account' %> >アカウント</label>
+    <div class="tabs-account">
+      <div class="tabs-account-row">
+        <label class="tabs-account-label">メールアドレス</label>
+        <p class="tabs-account-value"><%= @user.email %></p>
+      </div>
+      <div class="tabs-account-row">
+        <label class="tabs-account-label">パスワード:</label>
+        <p class="tabs-account-value">*********</p>
+      </div>
+      <div class="tabs-account-btn">
+      <%= link_to '編集する', edit_user_registration_path, class: 'account-btn account-btn-ope' %>
+      <%= link_to "戻る", request.referer || rooms_path, class: 'account-btn account-btn-return' %>
+      </div>
+    </div>
+      <label class="tabs-menu-label"><input type="radio" name="tab-2" <%= 'checked' if params[:tab] == 'profile'%> >プロフィール</label>
+    <div class="tabs-account">
+      <div class="tabs-account-row">
+        <label class="tabs-account-label">アイコン画像:</label>
+      <% if @profile.icon.attached? %>
+        <p class="tabs-account-value"><%= image_tag @profile.icon, size: '80x80', alt: 'ユーザーアイコン', class: 'tabs-account-value-img' %></p>
+      <% else %>
+        <p class="tabs-account-value"><%= image_tag 'default-avatar.png', alt: 'ユーザーアイコン', class: 'tabs-account-value-img' %></p>
+      <% end %>
+      </div>
+      <div class="tabs-account-row">
+        <label class="tabs-account-label">名前:</label>
+        <p class="tabs-account-value"><%= @user.name %></p>
+      </div>
+      <div class="tabs-account-row">
+        <label class="tabs-account-label">自己紹介:</label>
+        <p class="tabs-account-value"><%= @profile.introduction %></p>
+      </div>
+      <div class="tabs-account-btn">
+        <%= link_to '編集する', edit_settings_profile_path, class: 'account-btn account-btn-ope' %>
+        <%= link_to "戻る", request.referer || rooms_path, class: 'account-btn account-btn-return' %>
+      </div>
+    </div>
+  </div> 
+  </div> 
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>

@@ -1,0 +1,59 @@
+<% if resource.errors.any? %>
+<div class="page-center-error">
+  <%= render "devise/shared/error_messages", resource: resource %>
+</div>
+<% end %>
+
+<%= render 'shared/header'%>
+
+<div class="sign_up-account-container">
+  <h2>新規登録</h2>
+  <div class="sign_up-account-wrapper">
+    <%= form_with(scope: :user, url: user_registration_path, local: true ) do |f| %>
+
+    <div class="sign_up-account-row">
+      <div class="sign_up-account-title">
+        <%= f.label :name, class: 'sign_up-account-label' %>
+        <small>※必須</small>
+      </div>
+        <%= f.text_field :name, autofocus: true, autocomplete: "new-name", placeholder: "#{t('activerecord.attributes.user.name')}を入力", class: 'sign_up-account-value' %>
+    </div>
+
+    <div class="sign_up-account-row">
+      <div class="sign_up-account-title">
+        <%= f.label :email, class: 'sign_up-account-label' %><small>※必須</small>
+      </div>
+      <%= f.email_field :email, autocomplete: "new-email", placeholder: "#{t('activerecord.attributes.user.email')}を入力", class: 'sign_up-account-value' %>
+    </div>
+
+    <div class="sign_up-account-row">
+      <div class="sign_up-account-title">
+        <%= f.label :password, class: "sign_up-account-label" %>
+        <small>※必須
+        <% if @minimum_password_length %>
+          ※<%= @minimum_password_length %>字以上で入力
+        <% end %>
+        </small>
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "#{t('activerecord.attributes.user.password')}を入力", class: "sign_up-account-value" %>
+    </div>
+
+  <div class="sign_up-account-row">
+    <div class="sign_up-account-title">
+    <%= f.label :password_confirmation, class: "sign_up-account-label" %><small>※必須</small>
+    </div>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "#{t('activerecord.attributes.user.password_confirmation')}を入力", class: "sign_up-account-value" %>
+  </div>
+
+  <div class="form-new-sign_up-btn">
+    <div><%= f.submit "新しいアカウントを作成", class: "new-sign_up-btn account-btn account-btn-ope" %></div>
+    <div><%= render "devise/shared/links" %></div>
+    <%= link_to '← 戻る', request.referer || rooms_path, class: "account-btn account-btn-return" %>
+  </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>

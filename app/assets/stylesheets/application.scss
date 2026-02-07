@@ -1,0 +1,67 @@
+@import 'variables';
+@import 'mixins';
+@import 'common';
+
+@import 'home/header';
+@import 'home/content';
+@import 'home/footer';
+
+@import 'settings/show';
+@import 'profiles/edit';
+
+@import 'devise/resistrations/account_edit';
+@import 'devise/resistrations/signup';
+@import 'devise/sessions/login';
+@import 'devise/commons/show_error_success_message';
+
+@import 'rooms/index';
+@import 'rooms/search_header';
+@import 'rooms/own';
+@import 'rooms/show';
+@import "rooms/form";
+
+@import 'reservations/form';
+@import 'reservations/show';
+@import 'reservations/index';
+@import 'reservations/confirm';
+
+@import 'modal_delete_massages';
+
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  background-color: #F6F7F8;
+  font-size: 1em;
+  color: $text-base-color;
+}
+
+a {
+  text-decoration: none;
+  color: $text-base-color;
+  cursor: $base-cursor;
+}
+
+input {
+  cursor: $base-cursor;
+}
+
+small {
+  font-weight: bold;
+}
+

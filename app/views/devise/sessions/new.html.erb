@@ -1,0 +1,31 @@
+
+<%= render 'shared/header'%>
+<div class="login-account-container">
+  <h2>ログイン</h2>
+  <div class="login-account-wrapper ">
+  <%= form_with(scope: :user, url: user_session_path, local: true ) do |f| %>
+      <div class="login-account-row">
+        <%= f.label :email, class: "login-account-label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-account-value" %>
+      </div>
+
+      <div class="login-account-row">
+        <%= f.label :password, class: "login-account-label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "login-account-value" %>
+      </div>
+
+      <div class="login-account-btn">
+        <%= f.submit "ログイン", class: "account-btn account-btn-ope" %>
+        <%= render "devise/shared/links", class: "login-account-btn-return" %>
+        <%= link_to '← 戻る', request.referer || rooms_path, class: "account-btn account-btn-return" %>
+      </div>
+
+    </div>
+  <% end %>
+</div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>
+

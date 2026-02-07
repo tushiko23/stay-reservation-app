@@ -1,0 +1,24 @@
+ja:
+  time:
+    formats:
+      default: '%Y/%m/%d'
+      long: '%Y/%m/%d %H:%M'
+  activerecord:
+    attributes:
+      room:
+        name: '施設名'
+        introduction: '施設明細'
+        fee_per_day: '宿泊料金(/日)'
+        address: '施設住所'
+      reservation:
+        check_in_date: 'チェックイン日'
+        check_out_date: 'チェックアウト日'
+        guest_count: '宿泊人数'
+  number:
+    currency:
+      format:
+        unit: "¥"
+        precision: 0
+        delimiter: ","
+        format: "%u%n"
+

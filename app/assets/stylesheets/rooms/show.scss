@@ -1,0 +1,64 @@
+@import 'variables';
+
+.room-show-container {
+  @include show-whole-position;
+}
+
+.room-show-header {
+  @include show-header-position;
+
+  .room-btn-return {
+    @include show-header-btn-return;
+  }
+
+  .room-btn-edit {
+    @include show-header-btn-edit;
+  }
+}
+
+.room-show-contents-wrapper {
+  @include show-contents-position;
+
+  .room-show-img-field {
+    flex: 2 1 0;
+    min-width: 0;
+
+    .room-show-img {
+      @include show-img-layout;
+    }
+  }
+
+  .room-show-info-field {
+    @include show-info-layout;
+    flex: 3 1 0;
+    gap: 10px;
+
+    .room-show-address-value {
+      @include show-info-value-layout;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .room-show-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .room-fee_per_day-value {
+      font-size: 38px;
+    }
+    
+    .room-show-btn {
+      width: fit-content;
+
+    .room-reserve-btn {
+      padding: 12px 32px;
+    }
+
+    .room-login-btn {
+      padding: 12px 32px;
+    }
+    }
+  }
+}

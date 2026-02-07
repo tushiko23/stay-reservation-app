@@ -1,0 +1,43 @@
+.login-account-container {
+  @include authenticate-base-width;
+
+  h2 {
+    @include primary-screen-title;
+    padding-bottom: 5px;
+    margin: 30px auto;
+  }
+}
+
+.login-account-wrapper {
+  @include  authenticate-base-form;
+  width: 70%;
+
+  form {
+    width: 70%;
+    margin: 45px auto;
+  }
+}
+
+.login-account-row {
+  @include authenticate_base_row;
+}
+
+.login-account-row .field_with_errors {
+  display: contents;
+}
+
+.login-account-label {
+  flex: 0 0 50%;
+  font-weight: bold;
+}
+
+.login-account-value {
+  @include authenticate_base_value;
+}
+
+.login-account-btn {
+  display: flex;
+  width: 100%;
+  margin: 32px auto;
+  white-space: nowrap;
+}

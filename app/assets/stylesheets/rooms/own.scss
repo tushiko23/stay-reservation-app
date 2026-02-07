@@ -1,0 +1,49 @@
+@import 'variables';
+
+.created-room-container {
+  @include table-width;
+
+  .created-room-header {
+    @include table-header-layout;
+
+    h2 {
+      @include primary-screen-title;
+      border-radius: 4px;
+    }
+
+    a {
+      @include show-header-btn-return;
+      }
+  }
+}
+
+  .created-room-wrapper {
+    margin: $table-base-margin;
+  }
+
+.created-room-table {
+  @include create-table-position;
+}
+
+.created-room-tr, .created-room-td {
+  @include created-table-th-tr;
+}
+
+.created-room-th {
+  @include created-th;
+}
+
+.created-room-tbody {
+  background-color: $table-tbody-color;
+}
+.dropdown-menu-own {
+  @include table-dropdown-menu;
+}
+
+.dropdown-menu-own-content  {
+  @include dropdown-menu-content;
+}
+
+.dropdown-menu-own:hover .dropdown-menu-own-content {
+  @include dropdown-menu-hover;
+}

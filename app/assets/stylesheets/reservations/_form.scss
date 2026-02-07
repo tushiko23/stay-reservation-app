@@ -1,0 +1,165 @@
+@import 'variables'; 
+
+.form-reserve-container {
+  max-width: $base-max-width;
+  margin: $base-margin;
+  
+  h2 {
+    @include primary-screen-title;
+    margin: $form-margin;
+  }
+}
+
+.form-reserve-wrapper {
+  width: 100%;
+  align-items: center;
+  margin: 32px auto;
+
+  .form-reserve {
+    display: flex;
+  }
+}
+
+.reserve-form-info-room-field {
+  min-width: 0;
+  flex: 1 1 0;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: auto;
+
+  .reserve-form-room-field {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .reserve-form-room-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: auto;
+
+    text-align: left;
+    background: $primary-base-background-color;
+    border: $primary-base-border;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 8px 16px; 
+
+  }
+  .reserve-form-img-field {
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .reserve-show-img {
+    width: 60%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  h3 {
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+
+}
+
+  .reserve-address-value {
+    color: $text-base-color;
+    font-size: 14px;
+    background-color:  $label-base-background-color;
+    padding: 4px 8px;
+    border-radius: 10px;
+    width: fit-content;
+  }
+  .reserve-introduction-value {
+    height: auto;
+  }
+
+  .reserve-fee_per_day-value {
+    color: $form-btn-orange;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+
+.reserve-form-info-reserve-field {
+  min-width: 0;
+  flex: 1 1 0;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  background: $primary-base-background-color;
+  border: $primary-base-border;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 16px;
+  margin: auto; 
+}
+
+.reserve-show-img {
+  width: 50%;
+  height: 160px;
+}
+
+.reserve-form-label {
+  font-size: 1.25rem;
+  font-weight: bold;
+  white-space: nowrap;
+
+
+  small {
+    @include form-required-label;
+  }
+}
+
+.form-reserve-error {
+  @include form-error-massage;
+  margin-left: 8px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+.reserve-form-meta {
+  display: flex;
+  margin-bottom: 8px;
+}
+.reserve-form-date_field {
+  padding: 10px;
+  border: 1px solid $form-value-border-color;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: white;
+  width: 75%;
+  box-sizing: border-box; 
+}
+
+.reserve-form-number {
+  padding: 10px;
+}
+
+.form-reserve-btn {
+  @include form-btn-position;
+  margin: 24px auto;
+
+.reserve-btn {
+    width: 12.5rem;
+    @include form-base-btn-layout;
+
+    &-ope {
+      @include form-base-btn-ope;
+    }
+
+    &-return {
+      @include form-base-btn-return;
+    }
+  }
+}

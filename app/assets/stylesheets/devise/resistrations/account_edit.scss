@@ -1,0 +1,74 @@
+@import 'variables';
+
+.form-container {
+  @include account_base_width;
+
+  .edit-account-label {
+    font-weight: bold;
+  }
+}
+
+.edit-account-row {
+  @include authenticate_base_row;
+  gap: 2.5rem;
+  small {
+    font-weight: bold;
+  }
+}
+
+.edit-account-title {
+  display: block;
+
+  small {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+.edit-account-title {
+  flex: 0 0 25%;
+  min-width: 0
+}
+
+.edit-account-required {
+  font-weight: bold;
+  color: $form-required-color;
+}
+
+.edit-account-value {
+  @include authenticate_base_value;
+  height: 2.5rem;
+}
+
+.edit-account-row .field_with_errors {
+  display: contents;
+}
+
+.form-edit-account-btn {
+  @include authenticate_btn_layout;
+
+  .edit-account-btn {
+    &-ope {
+      flex: 0 0 50%;
+    }
+
+    &-return {
+      flex: 0 0 50%;
+    }
+  }
+}
+
+.edit-account-btn {
+  @include profile_icon_return_btn;
+  margin: 16px 24px;
+
+  &-ope {
+    @include authenticate_edit_ope_btn;
+  }
+
+  &-return {
+    @include authenticate_edit_return_btn;
+  }
+}
+
+

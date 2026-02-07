@@ -1,0 +1,65 @@
+<%= render 'shared/header'%>
+
+<div class="reserved-room-container">
+  <div class="reserved-room-header">
+    <h2>予約済み一覧</h2>
+    <%= link_to '← 戻る', request.referer || rooms_path %>
+  </div>
+
+  <div class="reserved-room-wrapper">
+    <table class="reserved-room-table">
+    <thead class="reserved-room-thead">
+      <tr class="reserved-room-tr">
+        <th class="reserved-room-th">施設画像</th>
+        <th class="reserved-room-th">施設名</th>
+        <th class="reserved-room-th">紹介文</th>
+        <th class="reserved-room-th">チェックイン</th>
+        <th class="reserved-room-th">チェックアウト</th>
+        <th class="reserved-room-th">合計料金</th>
+        <th class="reserved-room-th">予約確定日時</th>
+        <th class="reserved-room-th">予約詳細</th>
+        <th class="reserved-room-th">編集・削除</th>
+      </tr>
+    </thead>
+    <tbody class="reserved-room-tbody">
+      <% @reservations.each do |reservation|%>
+      <tr class="reserved-room-tr">
+        <% if reservation.room.image.attached? %>
+          <td class="reserved-room-td"><%= image_tag reservation.room.image, size: '100x100', alt: '宿泊先の画像' %></td>
+        <% else %>
+          <td class="reserved-room-td"><%= image_tag 'default-room.png', size: '100x100', alt: '宿泊先のデフォルト画像' %></td>
+        <% end %>
+        <td class="reserved-room-td"><%= link_to "#{reservation.room.name}", room_path(reservation.room.id), class: 'reserved-room-td-name' %></td>
+        
+        <% if reservation.room.introduction.length > 30 %>
+          <td class="created-room-td"><%= reservation.room.introduction.slice(0, 30) + "..." %></td>
+        <% else %>
+          <td class="reserved-room-td"><%= reservation.room.introduction %></td>
+        <% end %>
+        <td class="reserved-room-td"><%= l reservation.check_in_date %></td>
+        <td class="reserved-room-td"><%= l reservation.check_out_date %></td>
+        <td class="reserved-room-td"><%= "#{number_to_currency(reservation.calculate_total_price)}" %></td>
+        <td class="reserved-room-td"><%= l reservation.created_at, format: :long %></td>
+        <td class="reserved-room-td"><%= link_to '予約詳細', reservation_path(reservation.id), class: 'reserved-room-td-name' %></td>
+        <td class="reserved-room-td">
+          <div class="dropdown-menu-own">
+            <%= image_tag 'actions_menu.png', size: '45x45', alt: '3点アイコンメニュー'%>
+            <div class="dropdown-menu-own-content">
+              <ul>
+                <li><%= link_to '編集', edit_reservation_path(reservation.id) %></li>
+                <li><a href="javascript:void(0);" onclick="openModal('modal-reservation-<%= reservation.id %>')">予約を削除</a></li>
+              </ul>
+            </div>
+          </div>
+          <%= render 'shared/modal_delete_massages', object: reservation, title: '予約', delete_path: reservation_path(reservation.id)%>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>  
+    </table>
+  </div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>

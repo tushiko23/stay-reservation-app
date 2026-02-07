@@ -1,0 +1,134 @@
+@import 'variables';
+
+.tabs-container {
+  margin: 0 auto 2rem;
+  max-width: $form-base-width;
+
+  h2 {
+    @include primary-screen-title;
+    margin: 2rem auto;
+  }
+}
+
+.tabs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 10px;
+
+  .tabs-menu-label {
+    @include tabs-menu-tag;
+    flex: 1 1;
+    order: -1;
+    min-width: 70px;
+    padding: 1em 1em;
+    border-radius:  0 0 12px 12px;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+
+    &:not(:has(:checked)):hover {
+      background-color: #fff7ec;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  .tabs-account {
+    @include tabs-menu-tag;
+    display: none;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: $form-base-border-radius;
+    box-shadow: $form-base-box-shadow;
+
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  label:has(:checked) {
+    background-color: $tabs-header-checked-color; 
+    color: $form-btn-white;
+    border-color: $primary-base-border;
+    border-bottom: none;
+    margin-bottom: -2px;
+
+    + div {
+      display: block;
+    }
+  }
+}
+
+.tabs-account-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: .75rem 0;
+}
+
+.tabs-account-label {
+  flex: 0 0 25%;
+  font-weight: bold;
+}
+
+.tabs-account-value {
+  flex: 0 0 75%;
+  margin: 0;
+
+  &-img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.account-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+  margin: 0 10px;
+
+  &-ope {
+    color: $form-btn-white;
+    background-color: $form-btn-blue;
+
+    &:hover {
+      background-color: $form-btn-blue-hover;
+    }
+  }
+
+  &-return {
+    color: $form-btn-blue;
+    border: 2px solid $form-btn-blue;
+
+    &:hover {
+      background-color: $form-btn-blue-hover;
+      color: $form-btn-white;
+    }
+  }
+}
+
+.tabs-account-btn {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin: 1rem auto 0;
+
+  .account-btn {
+    &-ope {
+      flex: 0 0 50%;
+    }
+
+    &-return {
+      flex: 0 0 50%;
+    }
+  }
+}

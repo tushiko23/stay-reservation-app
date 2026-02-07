@@ -1,0 +1,85 @@
+@import 'variables';
+
+.reserve-show-container {
+  @include show-whole-position;
+
+  h2 {
+    @include primary-screen-title;
+    text-align: center;
+    margin: 0 auto 32px;
+  }
+}
+
+.reserve-show-header {
+  @include show-header-position;
+
+  .reserve-btn-return {
+    @include show-header-btn-return;
+  }
+
+  .reserve-btn-edit {
+    @include show-header-btn-edit;
+  }
+}
+
+.reserve-show-contents-wrapper {
+  @include show-contents-position;
+
+  .reserve-show-img-field {
+    flex: 1 1 0;
+    min-width: 0;
+
+    .reserve-show-img {
+      @include show-img-layout;
+    }
+  }
+
+  .reserve-show-info-field {
+    @include show-info-layout;
+    flex: 1 1 0;
+    gap: 16px;
+
+      h2 {
+        margin: auto;
+      }
+
+      .reserve-show-info {
+        font-weight: bold;
+      }
+
+  }
+}
+
+.reserve-show-info-date {
+  display: flex;
+}
+
+.reserve-show-row {
+  text-align: center;
+}
+.reserve-show-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.reserve-show-value {
+  @include show-info-value-layout;
+  display: inline-block;
+  font-size: 1rem;
+
+}
+
+.reserve-show-info-date {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: auto;
+}
+
+.reserve-show-info-stay {
+  display: flex;
+  gap: 1.5rem;
+  margin: auto;
+}

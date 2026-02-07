@@ -1,0 +1,120 @@
+@import 'variables';
+
+.form-container {
+  @include account_base_width;
+
+  h2 {
+    @include primary-screen-title;
+    margin: 2rem auto;
+  }
+}
+
+.form-wrapper {
+  width: 100%;
+  padding: 1.5rem;
+
+  background: $form-btn-white;
+  border: $primary-base-border;
+  border-radius: $form-base-border-radius;
+  box-shadow: $form-base-box-shadow;
+
+  .form-profile-label {
+    font-weight: bold;
+  }
+}
+
+.form-profile-row {
+  @include authenticate_base_row;
+  gap: 1rem;
+}
+
+.form-profile-row .field_with_errors {
+  display: contents;
+}
+
+.form-profile-label {
+  flex: 0 0 25%;
+}
+
+.form-profile-media {
+  display: flex;
+  align-items: center;
+  flex: 0 0 75%;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.icon-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.icon-upload-btn {
+  padding: .5rem 1rem;
+  border: 2px solid #64747b;
+  border-radius: 4px;
+  background: $form-btn-white;
+  color: $form-btn-blue;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: $form-btn-blue;
+    color: $form-btn-white;
+  }
+}
+
+
+.form-profile-value-img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.form-profile-value {
+  @include authenticate_base_value;
+
+  &-username {
+    height: 2.5rem;
+  }
+
+  &-introduction {
+    height: 7.5rem;
+  }
+}
+
+.form-profile-btn {
+  @include authenticate_btn_layout;
+
+  .profile-btn {
+    &-ope {
+      flex: 0 0 50%;
+    }
+
+    &-return {
+      flex: 0 0 50%;
+    }
+  }
+}
+
+.profile-btn {
+  @include profile_icon_return_btn;
+  margin: 0 16px;
+
+  &-ope {
+    @include authenticate_edit_ope_btn;
+  }
+
+  &-return {
+    @include authenticate_edit_return_btn;
+  }
+}

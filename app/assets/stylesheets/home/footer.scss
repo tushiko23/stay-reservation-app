@@ -1,0 +1,41 @@
+@import 'variables';
+
+.footer-logo-wrapper {
+  margin: 0;
+
+  .site-logo {
+  display: block;
+  }
+
+}
+
+.footer-service-name {
+  font-size: 2rem;
+  font-weight: bold;
+  height: 40px;
+}
+
+.footer-copyright {
+  margin-top: 8px;
+}
+
+.footer-inner {
+  @include top-common-header-footer-layouts;
+  padding: 30px 20px;
+}
+
+.footer-nav {
+      @include top-nav-layouts;
+
+      li {
+        margin-left: 20px;
+      }
+
+      a {
+        @include top-layouts-link-menu;
+      }
+
+      a:hover {
+        color: $dropdown-base-hover-color;
+      }
+    }

@@ -1,0 +1,57 @@
+@import 'variables';
+
+/* お部屋一覧と詳細の検索ヘッダーのcss */
+
+.search-form-container {
+  background-color: $label-base-background-color;
+
+
+  .search-form-rooms { 
+    display: flex; 
+    height: 80px;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    }
+}
+
+.search-form-value {
+  width: 15rem;
+  height: 40px;
+  padding: .5rem;
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid $form-btn-blue;
+  border-radius: 4px;
+}
+
+.search-form-btn {
+  width: 6.25rem;
+  height: 40px;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+  background-color: $form-btn-blue;
+  color: $form-btn-white;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $form-btn-orange;
+    border: none;
+  }
+}
+
+.search-result-field {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 16px 0;
+  gap: 20px;
+
+  b {
+    font-size: 1.5rem;
+  }
+}

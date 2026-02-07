@@ -1,0 +1,59 @@
+<%= render 'shared/header'%>
+
+<div class="created-room-container">
+  <div class="created-room-header">
+    <h2>作成した施設一覧</h2>
+    <%= link_to '← 戻る', @previous_url || rooms_path %>
+  </div>
+  <div class="created-room-wrapper">  
+  <table class="created-room-table">
+    <thead class="created-room-thead">
+      <tr class="created-room-tr">
+        <th class="created-room-th">施設画像</th>
+        <th class="created-room-th">施設名</th>
+        <th class="created-room-th">紹介文</th>
+        <th class="created-room-th">料金</th>
+        <th class="created-room-th">作成日</th>
+        <th class="created-room-th">編集・削除</th>
+      </tr>
+    </thead>
+    <tbody class="created-room-tbody">
+      <% @rooms.each do |room|%>
+        <tr class="created-room-tr">
+          <% if room.image.attached? %>
+            <td class="created-room-td"><%= image_tag room.image, size: '100x100', alt: '宿泊先の画像' %></td>
+          <% else %>
+            <td class="created-room-td"><%= image_tag 'default-room.png', size: '100x100', alt: '宿泊先のデフォルト画像' %></td>
+          <% end %>
+            <td class="created-room-td" ><%= link_to "#{room.name}", room_path(room.id), class: 'created-room-td-name' %></td>
+            <% if room.introduction.length > 30 %>
+              <td class="created-room-td"><%= room.introduction.slice(0, 30) + "..." %></td>
+            <% else %>
+              <td class="created-room-td"><%= room.introduction %></td>
+            <% end %>
+            <td class="created-room-td"><%= number_to_currency(room.fee_per_day) %>円~</td>
+            <td class="created-room-td"><%= l(room.created_at) %></td>
+            <td class="created-room-td">
+              <div class="dropdown-menu-own">
+                <%= image_tag 'actions_menu.png', size: '45x45', alt: '3点アイコンメニュー'%>
+              <div class="dropdown-menu-own-content">
+              <ul>
+                <li><%= link_to '編集', edit_room_path(room.id) %></li>
+                <li><a href="javascript:void(0);" onclick="openModal('modal-room-<%= room.id %>')">施設を削除</a></li>
+              </ul>
+              </div>
+              </div>
+              <%= render 'shared/modal_delete_massages', object: room, title: '施設', delete_path: room_path(room.id)%>
+            </td>
+        </tr>
+      <% end %>
+    </tbody> 
+  </table>
+  </div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>
+
+

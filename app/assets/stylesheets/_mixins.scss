@@ -1,0 +1,364 @@
+@import 'variables';
+
+/* ページ全体 */
+@mixin primary-screen-title {
+  font-size: $title-base-size;
+  border-bottom: solid 0.25rem orange;
+  width: fit-content;
+}
+
+@mixin grid-expand {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* header footer 共通レイアウト */
+@mixin top-common-header-footer-layouts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: $base-max-width;
+  margin: $base-margin
+}
+
+@mixin top-nav-layouts {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin top-layouts-link-menu {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* ログイン・新規登録関連 */
+@mixin authenticate-base-width {
+  max-width: $form-base-width;
+  margin: $base-margin;
+}
+
+@mixin authenticate-base-form {
+  margin: 20px auto;
+  background: $form-btn-white;
+  border: $primary-base-border;
+  border-radius: $form-base-border-radius;
+  box-shadow: $form-base-box-shadow;
+}
+
+@mixin authenticate_base_row {
+  display: flex;
+  align-items: center;
+  margin: 1.25rem auto;
+}
+
+@mixin authenticate_base_value {
+  flex: 0 0  50%;
+  padding: .5rem;
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid $form-btn-blue;
+  border-radius: 4px;
+}
+
+/* フォーム関連 */
+/* 必須ラベル */
+@mixin form-required-label {
+  margin-left: 6px;
+  font-size: 0.75rem;
+  color:  $form-required-color;
+  background-color: $form-required-background-color;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+@mixin form-error-massage {
+  margin-top: 4px;
+  color:  $form-error-massage-color;
+  font-size: 0.8rem;
+}
+
+@mixin form-btn-position {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@mixin form-base-btn-layout {
+  padding: 16px 20px;
+  font-size: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 12px;
+}
+
+@mixin form-base-btn-ope {
+  background-color: $form-btn-orange;
+  color: $form-btn-white;
+  font-weight: bold;
+  border: none;
+
+  &:hover {
+    background-color: $color-search-hover;
+  }
+}
+
+@mixin form-base-btn-return {
+  text-decoration: none;
+  transition: 0.3s;
+  border: 2px solid #64747b;
+  background-color: $form-btn-white;
+  color: $form-btn-blue;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $form-btn-black-hover;
+  }
+}
+
+/* 詳細画面 */
+@mixin show-whole-position {
+  max-width: $base-max-width;
+  margin: 20px auto;
+}
+
+@mixin show-header-position {
+  display: flex;
+  justify-content: space-between;
+  max-width: $base-max-width;
+}
+
+@mixin show-header-btn-return {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: $form-btn-blue-hover;
+  border: 1.5px solid $form-value-border-color;
+  padding: 8px 12px;
+  width: 100px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(71, 85, 105, 0.08);
+    color: #334155;
+  }
+}
+
+@mixin show-header-btn-edit {
+  display: inline-block;
+  background-color: $form-btn-blue;
+  color: $form-btn-white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 100px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: $form-btn-blue-hover;
+  }
+
+  &:active {
+    background-color: #334155;
+    transform: translateY(1px);
+  }
+}
+
+@mixin show-contents-position {
+  display: flex;
+  gap: 32px;
+
+
+  max-width: $base-max-width;
+  margin: 32px auto;
+  align-items: center;
+}
+
+@mixin show-img-layout {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+@mixin show-info-layout {
+  min-width: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+  background: $primary-base-background-color;
+  border: $primary-base-border;
+  border-radius: 12px;
+  box-shadow: $form-base-box-shadow;
+
+  h2 {
+    font-size: 28px;
+  }
+}
+
+@mixin show-info-value-layout {
+  color: $text-base-color;
+  background-color: #FFE8C7;
+  padding: 4px 8px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+/* 登録したお部屋(own)と予約の一覧ページ */
+@mixin table-width {
+  max-width: $base-max-width;
+  margin: $base-margin;
+}
+
+@mixin table-header-layout {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+@mixin create-table-position {
+  width: 100%;
+  border-collapse: collapse; 
+  table-layout: fixed;
+}
+
+@mixin created-table-th-tr {
+  padding: 16px 10px;
+  border-bottom: 2px solid #ddd;
+  text-align: center; 
+  font-weight: bold;
+  img {
+    border-radius: 12px;
+  }
+
+  &-name {
+    color: $table-room-name;
+    text-decoration: none;
+
+    &:hover {
+      color: $table-room-name-hover;
+    }
+  }
+}
+
+@mixin created-th {
+  background-color: $table-header-background-color;
+  color: $table-header-color;
+  font-weight: bold;
+  padding: 16px;
+}
+
+@mixin table-dropdown-menu {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  img {
+    margin-top: 10px;
+  }
+}
+
+@mixin dropdown-menu-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1000;
+  min-width: 120px;
+  background-color: aliceblue;
+  margin: 0 auto;
+  padding: 8px;
+  border: none;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: left;
+
+
+  ul {
+    padding-left: 0;
+    margin: 0;
+  }
+  
+  li {
+    list-style: none;
+
+    a:hover {
+      color: $dropdown-base-hover-color;
+    }
+  }
+}
+
+@mixin dropdown-menu-hover {
+  display: block;
+  justify-content: center;
+}
+
+/* アカウント関連　*/
+/* アカウント設定画面 */
+
+@mixin tabs-menu-tag {
+  background: $form-btn-white;
+  border: $primary-base-border;
+}
+
+/* アカウント・パスワード設定画面 */
+@mixin account_base_width {
+  max-width: $form-base-width;
+  margin: 0 auto 2rem; 
+}
+
+@mixin profile_icon_return_btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+@mixin authenticate_btn_layout {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+@mixin authenticate_edit_ope_btn {
+  color: $form-btn-white;
+  background-color: $form-btn-blue;
+
+  &:hover {
+    background-color: $form-btn-blue-hover;
+  }
+}
+
+@mixin authenticate_edit_return_btn {
+  color: $form-btn-blue;
+  border: 2px solid $form-btn-blue;
+
+  &:hover {
+    background-color: $form-btn-blue-hover;
+    color: $form-btn-white;
+  }
+}
+
+

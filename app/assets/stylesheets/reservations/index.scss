@@ -1,0 +1,50 @@
+@import 'variables';
+
+.reserved-room-container {
+  @include table-width;
+
+  .reserved-room-header {
+    @include table-header-layout;
+
+    h2 {
+      @include primary-screen-title;
+      border-radius: 4px;
+    }
+
+    a {
+      @include show-header-btn-return;
+      }
+    }
+  }
+
+  .reserved-room-wrapper {
+    margin: $table-base-margin;
+  }
+
+.reserved-room-table {
+  @include create-table-position;
+}
+
+.reserved-room-tr, .reserved-room-td {
+  @include created-table-th-tr;
+}
+
+.reserved-room-th {
+  @include created-th;
+  white-space: nowrap;
+}
+
+.reserved-room-tbody {
+  background-color: $table-tbody-color;
+}
+.dropdown-menu-own {
+  @include table-dropdown-menu;
+}
+
+.dropdown-menu-own-content  {
+  @include dropdown-menu-content;
+}
+
+.dropdown-menu-own:hover .dropdown-menu-own-content {
+  @include dropdown-menu-hover;
+}

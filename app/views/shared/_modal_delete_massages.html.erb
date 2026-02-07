@@ -1,0 +1,37 @@
+<div id="modal-<%= object.class.name.downcase %>-<%= object.id %>" class="custom-modal-overlay" style="display: none;">
+  <div class="custom-modal-content">
+
+    <button type="button" class="modal-close-times" onclick="closeModal('modal-<%= object.class.name.downcase %>-<%= object.id %>')">
+      &times;
+    </button>
+
+    <h3 class="modal-title"><%= title %>を削除しますか？</h3>
+    <div class="modal-body-content">
+      <% img =  if object.is_a?(Room) && object.image.attached? 
+                  object.image
+                elsif object.is_a?(Reservation) && object.room.image.attached?
+                  object.room.image
+                else
+                  'default-room.png'
+                end
+      %>
+        <%= image_tag img, class: "modal-preview-image" %>
+      <div class="modal-text-info">
+        <% if object.is_a?(Room) %>
+          <p><strong>施設名:</strong> <%= object.name %></p>
+          <p><strong>料金:</strong> <%= number_to_currency(object.fee_per_day) %>円</p>
+        <% elsif object.is_a?(Reservation) %>
+          <p><strong>施設名:</strong> <%= object.room.name %></p>
+          <p><strong>宿泊日:</strong> <%= l(object.check_in_date) %> 〜 <%= l(object.check_out_date) %></p>
+          <p><strong>宿泊人数:</strong> <%= object.guest_count %>人</p>
+          <p><strong>合計料金:</strong> <%= number_to_currency(object.calculate_total_price) %>円</p>
+        <% end %>
+      </div>
+      <p class="modal-warning">一度削除すると元に戻せません。</p>
+    </div>
+    <div class="modal-footer-actions">
+      <button type="button" class="btn-close-modal" onclick="closeModal('modal-<%= object.class.name.downcase %>-<%= object.id %>')">キャンセル</button>
+      <%= link_to '削除する', delete_path, data: { turbo_method: :delete }, class: "btn-confirm-delete" %>
+    </div>
+  </div>
+</div>

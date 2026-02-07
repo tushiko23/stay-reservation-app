@@ -1,0 +1,77 @@
+.sign_up-account-container {
+  @include authenticate-base-width;
+
+  h2 {
+    @include primary-screen-title;
+    margin: 2rem auto;
+  }
+}
+
+.sign_up-account-wrapper {
+  @include  authenticate-base-form;
+  width: 80%;
+  padding-top: 20px;
+  
+
+  form {
+    margin: 0 auto;
+  }
+}
+
+.sign_up-account-row {
+  @include authenticate_base_row;
+  align-items: center;
+  justify-content: center;
+
+  label {
+    font-weight: bold;
+  }
+
+  small{
+    font-weight: bold;
+    color: $form-required-color;
+  }
+}
+
+.sign_up-account-row .field_with_errors {
+  display: contents;
+}
+
+
+.sign_up-account-title {
+  display: block;
+  width: 90%;
+
+  small {
+    display: block;
+    white-space: nowrap;
+  }
+} 
+
+.sign_up-account-title {
+  flex: 0 0 25%;
+}
+
+.sign_up-account-value {
+  @include authenticate_base_value;
+  height: 2.5rem;
+}
+
+.form-new-sign_up-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.form-new-sign_up-btn input,
+.form-new-sign_up-btn a {
+  width: 320px;
+  text-align: center;
+}
+
+
+.new-sign_up-btn {
+  font-size: 1rem;
+}

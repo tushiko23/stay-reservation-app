@@ -1,0 +1,39 @@
+<%= render 'shared/header'%>
+
+<div class="reserved-confirm-container">
+
+  <h2>予約内容の確認</h2>
+
+  <div class="reserved-confirm-wrapper">
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">チェックイン:</label><span class="reserve-confirm-value"><%= l @reservation.check_in_date %></span></div>
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">チェックアウト:</label><span class="reserve-confirm-value"><%= l @reservation.check_out_date %></span></div>
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">人数:</label><span class="reserve-confirm-value"><%= "#{@reservation.guest_count}人" %></span></div>
+    <div class="reserve-confirm-row"><label class="reserve-confirm-label">宿泊日数:</label><span class="reserve-confirm-value"><%= "#{@reservation.stay_days}泊" %></span></div>
+    <div class="reserve-confirm-row reserve-confirm-label-sum"><label class="reserve-confirm-label">合計金額:</label><span class="reserve-confirm-value reserve-confirm-value-sum"><%= "#{number_to_currency(@reservation.calculate_total_price)}" %></span></div>
+
+    <p class="reserve-confirm-message">上記内容で正しければ「確定」ボタンを押してください。</p>
+    <div class="reserve-confirm-btn">
+      <%= form_with model: @reservation, url: room_reservations_path(@room), method: :post, local: true, data: { turbo: false } do |f| %>
+        <%# 1. 最初に取得したURLを confirm アクションへ送る %>
+        <%= hidden_field_tag :previous_url, @previous_url %>
+  
+        <%# room_id も送る（before_actionで使うため） %>
+        <%= hidden_field_tag :room_id, @room.id %>
+        <%= f.hidden_field :check_in_date %>
+        <%= f.hidden_field :check_out_date %>
+        <%= f.hidden_field :guest_count %>
+
+        <div class="reserve-confirm-btn">
+        <%= f.submit "確定して予約する", class: 'confirm-btn confirm-btn-ope' %>
+        <%= link_to '内容を修正する', new_reservation_path(room_id: @room.id, back: true, previous_url: @previous_url), class: "confirm-btn confirm-btn-return" %>
+        </div>
+      <% end %>
+
+      
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/hero_recommend_area'%>
+
+<%= render 'shared/footer'%>
