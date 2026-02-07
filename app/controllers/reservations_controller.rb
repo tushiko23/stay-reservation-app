@@ -56,7 +56,7 @@ class ReservationsController < ApplicationController
     end
   end
 
-
+  #予約idを取得し、ページで表示する
   def show
   end
 
